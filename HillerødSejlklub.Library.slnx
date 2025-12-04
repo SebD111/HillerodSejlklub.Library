@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="HillerødSejlklub.Console/HillerødSejlklub.Console.csproj" />
+  <Project Path="HillerødSejlklub.Library/HillerødSejlklub.Library.csproj" />
+  <Project Path="HillerødSejlklub.Web/HillerødSejlklub.Web.csproj" />
+</Solution>
