@@ -62,7 +62,7 @@ namespace HillerødSejlklub.Library
             foreach (Boat boat in GetAll())
             {
                 {
-                    Console.WriteLine($"ID: {boat.Id} - Navn: {boat.Name} - Model: {boat.Model}");
+                    Console.WriteLine($"ID: {boat.Id} - Navn: {boat.BoatName} - Model: {boat.BoatType}");
                 }
             }
 
