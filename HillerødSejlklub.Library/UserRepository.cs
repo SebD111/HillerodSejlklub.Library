@@ -31,6 +31,18 @@ namespace HillerødSejlklub.Library
             return null;
         }
 
-      
+        public User RemoveUserByName(string UserName)
+        {
+            User UserRemove = GetUsersByName(UserName);
+
+            if (UserRemove != null)
+            {
+
+                _users.Remove(UserRemove);
+                Console.WriteLine("Medlem Fjernet:");
+                return UserRemove;
+            }
+            return null;
+        }
     }
 }
