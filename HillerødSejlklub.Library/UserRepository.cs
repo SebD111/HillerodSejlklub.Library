@@ -17,7 +17,7 @@ namespace HillerødSejlklub.Library
             }
         }
 
-        public User AddUser(User user)
+        public static User AddUser(User user)
         {
             _userData.Add(user.Name, user);
             return user;

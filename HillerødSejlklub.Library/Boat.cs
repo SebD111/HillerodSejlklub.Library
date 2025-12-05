@@ -19,6 +19,7 @@ namespace HillerødSejlklub.Library
             MotorInfo = motorInfo;
             BoatDimensions = boatDimensions;
             YearOfConstruction = yearOfConstruction;
+            BoatRepository.AddBoat(this);
         }
         public int Id { get; set; }
         public string BoatType { get; set; }
