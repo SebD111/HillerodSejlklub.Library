@@ -6,7 +6,7 @@ using System.Text;
 
 public class Event
 {
-    private static List<Event> _events = new();
+    private static List<Event> _events = new List<Event>();
 
     // Auto-Properties for Event class
     public string Title { get; set; }
@@ -27,7 +27,7 @@ public class Event
         int participants,
         string location)
     {
-        var ev = new Event
+        Event ev = new Event
         {
             Title = title,
             Description = description,
@@ -44,7 +44,7 @@ public class Event
     // Udskriver alle events til konsollen
     public static void PrintAll()
     {
-        foreach (var ev in _events)
+        foreach (Event ev in _events)
         {
             Console.WriteLine(
                 $"Event: {ev.Title}\nStart: {ev.StartDate.ToString(DateTimeFormat)}\nSlut: {ev.EndDate.ToString(DateTimeFormat)}\nIndhold: {ev.Description}\nDeltagere (max): {ev.MaxParticipants}\nSted: {ev.Location}\n");
