@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 
+
+
 public class Event
 {
     private static List<Event> _events = new();
 
+    // Auto-Properties for Event class
     public string Title { get; set; }
     public string Description { get; set; }
     public DateTime StartDate { get; set; }
@@ -15,7 +18,7 @@ public class Event
 
     public const string DateTimeFormat = "dd-MM-yyyy HH:mm";
 
-    // Opretter et event og tilføjer det til den interne liste (ingen validering)
+    // Opretter et event og tilføjer det til listen over events
     public static Event Create(
         string title,
         DateTime start,
