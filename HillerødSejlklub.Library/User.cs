@@ -2,15 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace HillerødSejlklub.Console
+namespace HillerødSejlklub.Library
 {
-    public class User
     
-    {
         public class User
         {
-
-
             public User(int id, string name, string adress, string phone, string email)
             {
                 Id = id;
@@ -29,17 +25,12 @@ namespace HillerødSejlklub.Console
             public string Phone { get; set; }
 
             public string Email { get; set; }
-
-            public void GetAllMembers()
-            {
-                foreach (var user in _users)
-                {
-                    console.writeline($" Navn: {user.Name} -  ID: {user.Id} - Adresse: {user.Adress} - Telefon: {user.Phone} - Email: {user.Email}");
-                }
+       
             }
 
         }
-    }
+    
 
-}
+
+
 
