@@ -6,24 +6,28 @@ namespace HillerødSejlklub.Library
 {
     public class UserRepository
     {
-        private List<User> _users = new List<User>();
+        private static Dictionary<string, User> _userData = new Dictionary<string, User>();
 
         public void GetAllMembers()
         {
-            foreach (var user in _users)
+            foreach (var user in _userData.Values)
             {
                
                Console.WriteLine($" Navn: {user.Name} -  ID: {user.Id} - Adresse: {user.Adress} - Telefon: {user.Phone} - Email: {user.Email}");
             }
         }
 
-     
-
-        public User GetUsersByName(string UserName)
+        public User AddUser(User user)
         {
-            foreach (User user in _users)
+            _userData.Add(user.Name, user);
+            return user;
+        }
+
+        public User GetUsersByName(string userName)
+        {
+            foreach (var user in _userData.Values)
             {
-                if (user.Name == UserName)
+                if (user.Name == userName)
                 {
                     return user;
                 }
@@ -37,8 +41,7 @@ namespace HillerødSejlklub.Library
 
             if (UserRemove != null)
             {
-
-                _users.Remove(UserRemove);
+                _userData.Remove(UserRemove.Name);
                 Console.WriteLine("Medlem Fjernet:");
                 return UserRemove;
             }
