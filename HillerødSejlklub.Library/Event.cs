@@ -50,12 +50,4 @@ public class Event
                 $"Event: {ev.Title}\nStart: {ev.StartDate.ToString(DateTimeFormat)}\nSlut: {ev.EndDate.ToString(DateTimeFormat)}\nIndhold: {ev.Description}\nDeltagere (max): {ev.MaxParticipants}\nSted: {ev.Location}\n");
         }
     }
-
-    // Udskriver et enkelt event til konsollen
-    public void Print()
-    {
-        Console.WriteLine(
-            $"Event: {Title}\nStart: {StartDate.ToString(DateTimeFormat)}\nSlut: {EndDate.ToString(DateTimeFormat)}\nIndhold: {Description}\nDeltagere (max): {MaxParticipants}\nSted: {Location}\n");
-    }
 }
-

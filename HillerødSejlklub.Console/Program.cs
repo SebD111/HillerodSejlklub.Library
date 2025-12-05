@@ -8,11 +8,18 @@ booking.GetAll();
 
 User user = new User(1, "John Doe", "123 Main St", "555-1234", "hej123@gmail.com");
 
+Console.WriteLine();
+
+var start1 = new DateTime(2025, 06, 02, 13, 00, 00);
+var end1 = new DateTime(2025, 06, 02, 15, 00, 00);
+
+var ev1 = Event.Create("Klubmøde", start1, end1, "Ny hjemmeside", 20, "Hillerød Sejlklub");
 
 
-var start = new DateTime(2025, 12, 02, 13, 00, 00);
-var end = new DateTime(2025, 12, 02, 15, 00, 00);
+var start2 = new DateTime(2025, 08, 15, 13, 00, 00);
+var end2 = new DateTime(2025, 08, 15, 15, 00, 00);
 
-var ev = Event.Create("Klubmøde", start, end, "Ny hjemmeside", 20, "Hillerød");
+var ev2 = Event.Create("Årlige Kapløb", start2, end2, "Hurtigeste båd vinder", 50, "Hillerød Sejlklub");
+
 Event.PrintAll();
 
