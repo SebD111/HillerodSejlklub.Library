@@ -9,3 +9,10 @@ booking.GetAll();
 User user = new User(1, "John Doe", "123 Main St", "555-1234", "hej123@gmail.com");
 
 
+
+var start = new DateTime(2025, 12, 02, 13, 00, 00);
+var end = new DateTime(2025, 12, 02, 15, 00, 00);
+
+var ev = Event.Create("Klubmøde", start, end, "Ny hjemmeside", 20, "Hillerød");
+Event.PrintAll();
+
