@@ -6,6 +6,6 @@ booking.GetAll();
 Booking booking1 = new Booking(boat,new DateTime(2025, 12, 23, 16, 0, 0), new DateTime(2025, 12, 23, 18, 0, 0), "Bob", 1, "The sea");
 booking.GetAll();
 
-User user = new User(1, "John Doe", "123 Main St", "555-1234", "hej123@gmail.com");
+User user = new User(1, "John Doe", "123 Main St", "555-1234", "hej123@gmail.com",true);
 
 
