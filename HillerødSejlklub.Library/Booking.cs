@@ -8,9 +8,10 @@ namespace HillerødSejlklub.Library
     public class Booking
     {
         private static List<Booking> _bookings = new List<Booking>();
-
+        private static int _id = 0;
         public Booking(Boat boat, DateTime startTime, DateTime endTime, string user, int nrParticipant, string destination)
         {
+            _id++;
             Boat = boat;
             StartTime = startTime;
             EndTime = endTime;
@@ -20,7 +21,7 @@ namespace HillerødSejlklub.Library
             if (CheckBookingDate(startTime, endTime, boat))
             {
                 _bookings.Add(this);
-                Console.WriteLine("Your time is confirmed");
+                Console.WriteLine($"Your time is confirmed. Id - {_id}");
             }
             else 
             {
@@ -57,6 +58,18 @@ namespace HillerødSejlklub.Library
             {
                 Console.WriteLine($"Boat: {booking.Boat.Id}\nStart: {booking.StartTime}, End: {booking.EndTime}\nUser: {booking.User}\nParticipants: {booking.NrParticipant}\nDestination: {booking.Destination}");
             }
+        }
+
+        public void SafeReturn(int id)
+        {
+            foreach (Booking booking in _bookings)
+            {
+                if (Booking._id == id)
+                {
+                    _bookings.Remove(booking);
+                }
+            }
+            Console.WriteLine("Your booking could not be found");
         }
     }
 }
