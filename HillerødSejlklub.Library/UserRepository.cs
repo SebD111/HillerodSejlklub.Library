@@ -12,12 +12,11 @@ namespace HillerødSejlklub.Library
         {
             foreach (var user in _userData.Values)
             {
-               
                Console.WriteLine($" Navn: {user.Name} -  ID: {user.Id} - Adresse: {user.Adress} - Telefon: {user.Phone} - Email: {user.Email}");
             }
         }
 
-        public User AddUser(User user)
+        public static User AddUser(User user)
         {
             _userData.Add(user.Name, user);
             return user;

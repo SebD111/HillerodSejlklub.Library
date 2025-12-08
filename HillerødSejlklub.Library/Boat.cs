@@ -7,7 +7,7 @@ namespace HillerødSejlklub.Library
     public class Boat
     {
         public Boat(int id) 
-    {
+        { 
             Id = id;
         }
         public Boat(int id, string boatType, string boatName, int sailNumber, string motorInfo, string boatDimensions, int yearOfConstruction)
@@ -19,6 +19,7 @@ namespace HillerødSejlklub.Library
             MotorInfo = motorInfo;
             BoatDimensions = boatDimensions;
             YearOfConstruction = yearOfConstruction;
+            BoatRepository.AddBoat(this);
         }
         public int Id { get; set; }
         public string BoatType { get; set; }

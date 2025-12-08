@@ -8,22 +8,17 @@ namespace HillerødSejlklub.Library
     public class BoatRepository
     {
 
-        private List<Boat> _boatData;
+        private static Dictionary<string,Boat> _boatData = new Dictionary<string,Boat>();
 
-        public BoatRepository()
-        {
-            _boatData = new List<Boat>();
-
-        }
 
         public List<Boat> GetAll()
         {
-            return _boatData;
+            return _boatData.Values.ToList();
         }
 
         public Boat GetBoatById(int id)
         {
-            foreach (Boat boat in _boatData)
+            foreach (Boat boat in _boatData.Values)
             {
                 if (boat.Id == id)
                 {
@@ -34,9 +29,10 @@ namespace HillerødSejlklub.Library
             return null;
         }
 
-        public void AddBoat(Boat boat)
+        public static Boat AddBoat(Boat boat)
         {
-            _boatData.Add(boat);
+            _boatData.Add(boat.BoatName, boat);
+            return boat;
         }
 
         public Boat RemoveBoat(int id)
@@ -45,8 +41,7 @@ namespace HillerødSejlklub.Library
 
             if (BoatRemove != null)
             {
-
-                _boatData.Remove(BoatRemove);
+                _boatData.Remove(BoatRemove.BoatName);
                 return BoatRemove;
             }
 
@@ -59,7 +54,7 @@ namespace HillerødSejlklub.Library
         {
             Console.WriteLine("Båd liste:");
 
-            foreach (Boat boat in GetAll())
+            foreach (Boat boat in _boatData.Values)
             {
                 {
                     Console.WriteLine($"ID: {boat.Id} - Navn: {boat.BoatName} - Model: {boat.BoatType}");
