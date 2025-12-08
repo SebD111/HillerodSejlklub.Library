@@ -47,5 +47,51 @@ namespace HillerødSejlklub.Library
             }
             return null;
         }
+
+        public User GetUserById(int id)
+        {
+
+            foreach (User user in _userData.Values)
+            {
+
+                if (user.Id == id)
+                {
+                    Console.WriteLine($"Fandt bruger: {user.Name}");
+                    return user;
+                }
+            }
+
+            return null;
+        }
+
+        public void UpdateUser(int id, string newAddress = null, string newPhone = null, string newEmail = null)
+        {
+            User userToEdit = GetUserById(id);
+
+            if (userToEdit != null)
+            {
+
+                if (newAddress != null)
+                {
+                    userToEdit.Adress = newAddress;
+                }
+
+                if (newPhone != null)
+                {
+                    userToEdit.Phone = newPhone;
+                }
+
+                if (newEmail != null)
+                {
+                    userToEdit.Email = newEmail;
+                }
+
+                Console.WriteLine($"Ændring er gemt for medlem: {userToEdit.Name}\n");
+            }
+            else
+            {
+                Console.WriteLine($"Kunne ikke finde medlem med id: {id}");
+            }
+        }
     }
 }
