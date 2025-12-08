@@ -4,13 +4,14 @@ using System.Text;
 
 namespace HillerødSejlklub.Library
 
+
 {
     public class BoatRepository
     {
 
         private static Dictionary<string,Boat> _boatData = new Dictionary<string,Boat>();
 
-
+ 
         public List<Boat> GetAll()
         {
             return _boatData.Values.ToList();
@@ -57,7 +58,7 @@ namespace HillerødSejlklub.Library
             foreach (Boat boat in _boatData.Values)
             {
                 {
-                    Console.WriteLine($"ID: {boat.Id} - Navn: {boat.BoatName} - Model: {boat.BoatType}");
+                    Console.WriteLine($"ID: {boat.Id} - Navn: {boat.BoatName} - Model: {boat.BoatType} - Sejlnummer: {boat.SailNumber} - Motor: {boat.MotorInfo} - Størrelse {boat.BoatDimensions} - Årgang: {boat.YearOfConstruction}");
                 }
             }
 
