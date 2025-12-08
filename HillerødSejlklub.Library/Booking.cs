@@ -74,7 +74,7 @@
             {
                 if (start < booking.EndTime && end > booking.StartTime)
                 {
-                    Console.WriteLine($"{Boat.BoatName} is in the water. Time slot {StartTime} - {EndTime}");
+                    Console.WriteLine($"{booking.Boat.BoatName} is in the water. Time slot {booking.StartTime} - {booking.EndTime}");
                 }
             }
         }

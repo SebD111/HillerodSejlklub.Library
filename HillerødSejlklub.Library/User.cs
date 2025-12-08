@@ -8,10 +8,10 @@ namespace HillerødSejlklub.Library
     public class User
     {
         private static int _id;
-        public User(int id, string name, string adress, string phone, string email, bool admin)
+        public User(string name, string adress, string phone, string email, bool admin)
         {
             _id++;
-            Id = id;
+            Id = _id;
             Name = name;
             Adress = adress;
             Phone = phone;
