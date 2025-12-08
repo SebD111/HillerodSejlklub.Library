@@ -13,7 +13,7 @@ namespace HillerødSejlklub.Library
             _id++;
             Id = _id;
             Name = name;
-            Adress = adress;
+            Adress = adress; 
             Phone = phone;
             Email = email;
             Admin = admin;

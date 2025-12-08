@@ -6,7 +6,10 @@ namespace HillerødSejlklub.Library
 {
     public class UserRepository
     {
-        private static Dictionary<string, User> _userData = new Dictionary<string, User>();
+        private static SortedDictionary<string, User> _userData = new SortedDictionary<string, User>();
+
+       
+
 
         public void GetAllMembers()
         {
@@ -17,6 +20,7 @@ namespace HillerødSejlklub.Library
             }
         }
 
+      
         public static User AddUser(User user)
         {
             _userData.Add(user.Name, user);
