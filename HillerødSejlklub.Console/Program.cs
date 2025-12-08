@@ -35,8 +35,10 @@ Booking booking = new Booking(boat, new DateTime(2025, 12, 23, 10, 0, 0), new Da
 booking.GetAll();
 
 Console.WriteLine();
+Booking booking1 = new Booking(boat, new DateTime(2025, 12, 23, 6, 0, 0), new DateTime(2025, 12, 23, 10, 0, 0), user, 1, "The sea");
+booking.GetAll();
 
-Booking booking1 = new Booking(boat2, new DateTime(2025, 12, 23, 16, 0, 0), new DateTime(2025, 12, 23, 18, 0, 0), user2, 1, "The sea");
+Booking booking2 = new Booking(boat2, new DateTime(2025, 12, 23, 16, 0, 0), new DateTime(2025, 12, 23, 18, 0, 0), user2, 1, "The sea");
 booking.GetAll();
 
 
