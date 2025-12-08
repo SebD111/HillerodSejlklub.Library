@@ -18,6 +18,7 @@ namespace HillerødSejlklub.Library
             Email = email;
             Admin = admin;
             UserRepository.AddUser(this);
+            Time = DateTime.Now;
         }
         public int Id {get;set;}
         public string Name { get; set; }
@@ -28,7 +29,9 @@ namespace HillerødSejlklub.Library
 
         public string Email { get; set; }
         public bool Admin { get; set; }
-        
+
+        public DateTime Time { get; set; }
+
         public void GetAllBoat(BoatRepository boatList,User user)
         {
             if (user.Admin == true)
