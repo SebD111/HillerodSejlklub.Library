@@ -7,7 +7,7 @@ namespace HillerødSejlklub.Library
     
     public class User
     {
-        private static int _id;
+        private static int _id = 0;
         public User(string name, string adress, string phone, string email, bool admin)
         {
             _id++;
