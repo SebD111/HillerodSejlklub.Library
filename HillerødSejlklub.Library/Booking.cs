@@ -52,7 +52,7 @@
         {
             foreach(Booking booking in _bookings)
             {
-                Console.WriteLine($"Booking id: {booking.Id}\nBoat: {booking.Boat.BoatName}\nStart: {booking.StartTime}, End: {booking.EndTime}\nUser: {booking.User}\nParticipants: {booking.NrParticipant}\nDestination: {booking.Destination}");
+                Console.WriteLine($"Booking id: {booking.Id}\nBoat: {booking.Boat.BoatName}\nStart: {booking.StartTime}, End: {booking.EndTime}\nUser: {booking.User.Name}\nParticipants: {booking.NrParticipant}\nDestination: {booking.Destination}");
             }
         }
         public void SafeReturn(int id)
@@ -62,7 +62,8 @@
                 if (booking.Id == id)
                 {
                     _bookings.Remove(booking);
-                    break;
+                    Console.WriteLine("Welcome back from the trip");
+                    return;
                 }
             }
             Console.WriteLine("Your booking could not be found");
@@ -73,7 +74,7 @@
             {
                 if (start < booking.EndTime && end > booking.StartTime)
                 {
-                    Console.WriteLine($"{Boat} is in the water");
+                    Console.WriteLine($"{Boat.BoatName} is in the water. Time slot {StartTime} - {EndTime}");
                 }
             }
         }
