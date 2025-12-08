@@ -7,8 +7,10 @@ namespace HillerødSejlklub.Library
     
     public class User
     {
+        private static int _id;
         public User(int id, string name, string adress, string phone, string email, bool admin)
         {
+            _id++;
             Id = id;
             Name = name;
             Adress = adress;
@@ -17,9 +19,7 @@ namespace HillerødSejlklub.Library
             Admin = admin;
             UserRepository.AddUser(this);
         }
-
-        public int Id { get; set; }
-
+        public int Id {get;set;}
         public string Name { get; set; }
 
         public string Adress { get; set; }

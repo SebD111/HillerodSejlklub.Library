@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace HillerødSejlklub.Library
+﻿namespace HillerødSejlklub.Library
 {
     public class Booking
     {
         private static List<Booking> _bookings = new List<Booking>();
-        private static int _id = 0;
-        public Booking(Boat boat, DateTime startTime, DateTime endTime, string user, int nrParticipant, string destination)
+        private static int _idcounter = 0;
+        public Booking(Boat boat, DateTime startTime, DateTime endTime, User user, int nrParticipant, string destination)
         {
-            _id++;
+            _idcounter++;
+            Id = _idcounter;
             Boat = boat;
             StartTime = startTime;
             EndTime = endTime;
@@ -20,25 +16,25 @@ namespace HillerødSejlklub.Library
             Destination = destination;
             if (CheckBookingDate(startTime, endTime, boat))
             {
+                Console.WriteLine($"Your time is confirmed heres your Id - {Id}");
                 _bookings.Add(this);
-                Console.WriteLine($"Your time is confirmed. Id - {_id}");
             }
             else 
             {
                 Console.WriteLine("The boat is not available in that time slot");
             }
-
         }
+        public int Id { get; private set; }
         public Boat Boat { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
-        public string User { get; set; }
+        public User User { get; set; }
         public int NrParticipant { get; set; }
         public string Destination { get; set; }
         
         private bool CheckBookingDate(DateTime start, DateTime end, Boat boat)
         {
-            foreach (var booking in _bookings)
+            foreach (Booking booking in _bookings)
             {
                 if (booking.Boat == boat)
                 {
@@ -54,22 +50,32 @@ namespace HillerødSejlklub.Library
         
         public void GetAll()
         {
-            foreach(var booking in _bookings)
+            foreach(Booking booking in _bookings)
             {
-                Console.WriteLine($"Boat: {booking.Boat.Id}\nStart: {booking.StartTime}, End: {booking.EndTime}\nUser: {booking.User}\nParticipants: {booking.NrParticipant}\nDestination: {booking.Destination}");
+                Console.WriteLine($"Booking id: {booking.Id}\nBoat: {booking.Boat.BoatName}\nStart: {booking.StartTime}, End: {booking.EndTime}\nUser: {booking.User}\nParticipants: {booking.NrParticipant}\nDestination: {booking.Destination}");
             }
         }
-
         public void SafeReturn(int id)
         {
             foreach (Booking booking in _bookings)
             {
-                if (Booking._id == id)
+                if (booking.Id == id)
                 {
                     _bookings.Remove(booking);
+                    break;
                 }
             }
             Console.WriteLine("Your booking could not be found");
+        }
+        public void BoatInTheWater(DateTime start, DateTime end)
+        {
+            foreach (Booking booking in _bookings)
+            {
+                if (start < booking.EndTime && end > booking.StartTime)
+                {
+                    Console.WriteLine($"{Boat} is in the water");
+                }
+            }
         }
     }
 }

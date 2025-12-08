@@ -41,7 +41,6 @@ namespace HillerødSejlklub.Library
 
             if (BoatRemove != null)
             {
-
                 _boatData.Remove(BoatRemove.BoatName);
                 return BoatRemove;
             }
