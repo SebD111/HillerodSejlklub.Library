@@ -17,9 +17,9 @@ namespace HillerødSejlklub.Library
         }
 
         // Auto-properties
-        public string Manufacturer { get; set; } = string.Empty;
+        public string Manufacturer { get; set; }
         public int Horsepower { get; set; }
-        public string FuelType { get; set; } = string.Empty; // Benzin, Diesel, El
+        public string FuelType { get; set; } // Benzin, Diesel, El
         public int Year { get; set; }
 
         // Override ToString metode
