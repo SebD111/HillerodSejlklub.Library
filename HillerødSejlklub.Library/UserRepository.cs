@@ -18,7 +18,7 @@ namespace HillerødSejlklub.Library
             Console.WriteLine("-------------------------------------------");
             Console.ResetColor();
 
-            foreach (var user in _userData.Values)
+            foreach (var user in _userData.Values.OrderBy(u => u.Id))
             {
                 // Navn "fremhæves" i cyan farve
                 Console.ForegroundColor = ConsoleColor.Cyan;
