@@ -4,16 +4,15 @@ using System.Text;
 
 namespace HillerødSejlklub.Library
 {
-    public class Boat
+    public abstract class Boat
     {
         // Constructor der initialiserer en båd og tilføjer den til BoatRepository
-        public Boat(int id, string boatType, string boatName, int sailNumber, string motorInfo, string boatDimensions, int yearOfConstruction)
+        public Boat(int id, string boatName, int sailNumber, string boatDimensions, int yearOfConstruction)
         {
             Id = id;
-            BoatType = boatType;
             BoatName = boatName;
             SailNumber = sailNumber;
-            MotorInfo = motorInfo;
+           //Måske lave en klasse til motor info, lave den abscract base class
             BoatDimensions = boatDimensions;
             YearOfConstruction = yearOfConstruction;
             BoatRepository.AddBoat(this);
@@ -26,5 +25,5 @@ namespace HillerødSejlklub.Library
         public int SailNumber { get; set; }
         public string BoatDimensions { get; set; }
         public int YearOfConstruction { get; set; }
-    }
+    }// Nogle metoder kan være virtual, så subklasses kan override dem
 }

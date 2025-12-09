@@ -4,13 +4,14 @@ using System.Text;
 
 namespace HillerødSejlklub.Library
 {
-    public class UserRepository
+    public class UserRepository: IUserRepository
     {
-        private static SortedDictionary<string, User> _userData = new SortedDictionary<string, User>(); // SortedDictionary til at gemme brugere med navn som nøgle og sortere dem alfabetisk
+        private static Dictionary<string, User> _userData = new Dictionary<string, User>(); // SortedDictionary til at gemme brugere med navn som nøgle og sortere dem alfabetisk
 
         // Metode til at hente og udskrive alle medlemmer
-        public void GetAllMembers()
+        public void GetAll()
         {
+           
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("\nMedlemsliste i Hillerød Sejlklub");
             Console.ResetColor();
@@ -41,14 +42,14 @@ namespace HillerødSejlklub.Library
 
 
         //Denne metode tilføjer en bruger til dictionary
-        public static User AddUser(User user)
+        public static User AddU(User user)
         {
             _userData.Add(user.Name, user);
             return user;
         }
 
         //Denne metode henter en bruger baseret på navn
-        public User GetUsersByName(string userName)
+        public User GetByName(string userName)
         {
             foreach (User user in _userData.Values) // Gennemgår alle brugere i Dictionary
             {
@@ -61,9 +62,9 @@ namespace HillerødSejlklub.Library
         }
 
         // Denne metode fjerner en bruger baseret på navn
-        public User RemoveUserByName(string UserName)
+        public User RemoveByName(string UserName)
         {
-            User UserRemove = GetUsersByName(UserName); // Tjekker om brugeren findes
+            User UserRemove = GetByName(UserName); // Tjekker om brugeren findes
 
             if (UserRemove != null) // Hvis brugeren findes, fjernes den fra Dictionary
             {
@@ -75,7 +76,7 @@ namespace HillerødSejlklub.Library
         }
 
         // Denne metode henter en bruger baseret på ID
-        public User GetUserById(int id)
+        public User GetById(int id)
         {
 
             foreach (User user in _userData.Values) // Gennemgår alle brugere i Dictionary
@@ -94,7 +95,7 @@ namespace HillerødSejlklub.Library
         // Denne metode opdaterer en brugers oplysninger baseret på ID
         public void UpdateUser(int id, string newAddress = null, string newPhone = null, string newEmail = null)
         {
-            User userToEdit = GetUserById(id); // Henter brugeren baseret på ID
+            User userToEdit = GetById(id); // Henter brugeren baseret på ID
 
             if (userToEdit != null) // Tjekker om brugeren findes
             {

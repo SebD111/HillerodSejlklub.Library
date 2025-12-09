@@ -43,7 +43,7 @@
             {
                 if (booking.Boat == boat) // Tjekker kun bookinger for den samme båd
                 {
-                    if (start < booking.EndTime && end > booking.StartTime) //Tjekker at der ikke er overlap i tidsrum
+                    if (start < booking.EndTime && end > booking.StartTime) //Tjekker at der ikke er overlap i tidsrum // Lav to if statements
                     {
                         return false; 
                     }

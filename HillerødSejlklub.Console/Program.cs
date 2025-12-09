@@ -26,7 +26,7 @@ User user5 = new User("Jørgen Jordbærtærte", "Nørregade 27, København", "41
 // Udskrivning af alle brugere
 
 UserRepository userRepository = new UserRepository();
-userRepository.GetAllMembers();
+userRepository.GetAll();
 
 Console.WriteLine();
 
