@@ -18,7 +18,7 @@ namespace HillerødSejlklub.Library
             Phone = phone;
             Email = email;
             Admin = admin;
-            UserRepository.AddUser(this); // Tilføjer instansen til UserRepository
+            UserRepository.AddU(this); // Tilføjer instansen til UserRepository
             Time = DateTime.Now;
         }
         // Properies
@@ -35,24 +35,27 @@ namespace HillerødSejlklub.Library
         public DateTime Time { get; set; }
 
         // Metoden der tjekker om brugeren er admin og henter alle både
-        public void GetAllBoat(BoatRepository boatList,User user)
+        public void GetAllBoat(BoatRepository boatList, User user)
         {
             if (user.Admin == true) // Tjekker om brugeren er admin
             {
-                boatList.PrintAllBoats(); //Printer alle både
+                var boats = BoatRepository.GetAll(); // Henter alle både
+                foreach (var boat in boats)
+                {
+                    Console.WriteLine(boat); // Udskriv båd info (tilpas evt. udskrivning)
+                }
             }
             else
             {
                 Console.WriteLine("Du har ikke adgang til dette");
             }
-
         }
         // Metoden der tjekker om brugeren er admin og henter alle brugere
         public void GetAllUser(UserRepository userList,User user)
         {
             if (user.Admin == true) // Tjekker om brugeren er admin
             {
-                userList.GetAllMembers(); //Printer alle brugere
+                userList.GetAll(); //Printer alle brugere
             }
             else 
             {
@@ -62,8 +65,3 @@ namespace HillerødSejlklub.Library
     }
 
 }
-    
-
-
-
-

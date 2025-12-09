@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace HillerødSejlklub.Library
-
-
 {
     public class BoatRepository
     {
-
         private static Dictionary<string, Boat> _boatData = new Dictionary<string, Boat>();
 
         //Denne metode henter alle både i båd dictionary
@@ -16,6 +14,7 @@ namespace HillerødSejlklub.Library
         {
             return _boatData.Values.ToList();
         }
+
         // Denne metode henter en båd ud fra id
         public Boat GetById(int id)
         {
@@ -29,12 +28,14 @@ namespace HillerødSejlklub.Library
 
             return null;
         }
+
         // Denne metode tilføjer en båd til båd dictionary
         public static Boat AddBoat(Boat boat)
         {
             _boatData.Add(boat.BoatName, boat); // Skal kigges på
             return boat;
         }
+
         // Denne metode fjerner en båd ud fra id
         public Boat Remove(int id)
         {
@@ -47,9 +48,6 @@ namespace HillerødSejlklub.Library
             }
 
             return null;
-
         }
-
     }
-
 }
