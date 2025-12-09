@@ -12,7 +12,7 @@ namespace HillerødSejlklub.Library
         private static Dictionary<string, Boat> _boatData = new Dictionary<string, Boat>();
 
         //Denne metode henter alle både i båd dictionary
-        public List<Boat> GetAll()
+        public static List<Boat> GetAll()
         {
             return _boatData.Values.ToList();
         }
