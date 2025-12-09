@@ -26,6 +26,7 @@ namespace HillerødSejlklub.Library
         public int SailNumber { get; set; }
         public string BoatDimensions { get; set; }
         public int YearOfConstruction { get; set; }
+        // Skal Fixes
         public void PrintAllBoats() // Sæt ind i boat class
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -34,7 +35,8 @@ namespace HillerødSejlklub.Library
             Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine("-------------------------------------------");
             Console.ResetColor();
-            foreach (Boat boat in )
+            
+            foreach (Boat boat in BoatRepository.GetAll())
             {
                 Print(boat);
             }
