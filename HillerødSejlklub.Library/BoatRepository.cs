@@ -17,7 +17,7 @@ namespace HillerødSejlklub.Library
             return _boatData.Values.ToList();
         }
         // Denne metode henter en båd ud fra id
-        public Boat GetBoatById(int id)
+        public Boat GetById(int id)
         {
             foreach (Boat boat in _boatData.Values) //Gennemgår alle både i båd dictionary //Overvej at søge på key
             {
@@ -36,9 +36,9 @@ namespace HillerødSejlklub.Library
             return boat;
         }
         // Denne metode fjerner en båd ud fra id
-        public Boat RemoveBoat(int id)
+        public Boat Remove(int id)
         {
-            Boat BoatRemove = GetBoatById(id); //Henter båden ud fra id
+            Boat BoatRemove = GetById(id); //Henter båden ud fra id
 
             if (BoatRemove != null) //Tjekker om båden findes
             {
@@ -51,7 +51,7 @@ namespace HillerødSejlklub.Library
         }
 
         // Denne metode printer alle både i båd dictionary
-        public void PrintAllBoats() // Sæt ind i boat class
+        public virtual void PrintAll() // Sæt ind i boat class
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("\nBådliste i Hillerød Sejlklub");
