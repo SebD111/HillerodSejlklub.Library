@@ -6,7 +6,7 @@ namespace HillerødSejlklub.Library
 {
     public class MotorBoat: Boat
     {
-         public MotorBoat (int id, string boatType, string boatName, int sailNumber, Motor motor, string boatDimensions, int yearOfConstruction): base(id, boatType, boatName, sailNumber, motorInfo, boatDimensions, yearOfConstruction)
+         public MotorBoat (int id, string boatName, int sailNumber, Motor motor, string boatDimensions, int yearOfConstruction): base(id, boatName, sailNumber, boatDimensions, yearOfConstruction)
         {
             Motor = motor;
         }
