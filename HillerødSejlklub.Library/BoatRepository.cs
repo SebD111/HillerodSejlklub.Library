@@ -9,7 +9,7 @@ namespace HillerødSejlklub.Library
     public class BoatRepository
     {
 
-        private static Dictionary<string,Boat> _boatData = new Dictionary<string,Boat>();
+        private static Dictionary<string, Boat> _boatData = new Dictionary<string, Boat>();
 
         //Denne metode henter alle både i båd dictionary
         public List<Boat> GetAll()
@@ -53,18 +53,31 @@ namespace HillerødSejlklub.Library
         // Denne metode printer alle både i båd dictionary
         public void PrintAllBoats()
         {
-            Console.WriteLine("Båd liste:");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("\nBådliste i Hillerød Sejlklub");
+            Console.ResetColor();
+            Console.ForegroundColor= ConsoleColor.DarkGray;
+            Console.WriteLine("-------------------------------------------");
+            Console.ResetColor();
 
-            foreach (Boat boat in _boatData.Values) //Gennemgår alle både i båd dictionary
+            foreach (Boat boat in _boatData.Values)
             {
-                {
-                    Console.WriteLine($"ID: {boat.Id} - Navn: {boat.BoatName} - Model: {boat.BoatType} - Sejlnummer: {boat.SailNumber} - Motor: {boat.MotorInfo} - Størrelse {boat.BoatDimensions} - Årgang: {boat.YearOfConstruction}");
-                }
-            }
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine($"ID: {boat.Id} - {boat.BoatName}");
+                Console.ResetColor();
 
+                Console.WriteLine($"  Type: {boat.BoatType}");
+                Console.WriteLine($"  Sejlnummer: {boat.SailNumber}");
+                Console.WriteLine($"  Motor: {boat.MotorInfo}");
+                Console.WriteLine($"  Størrelse: {boat.BoatDimensions}");
+                Console.WriteLine($"  Årgang: {boat.YearOfConstruction}");
+
+                Console.ForegroundColor = ConsoleColor.DarkGray;
+                Console.WriteLine("-------------------------------------------");
+                Console.ResetColor();
+            }
         }
 
     }
-
 
 }

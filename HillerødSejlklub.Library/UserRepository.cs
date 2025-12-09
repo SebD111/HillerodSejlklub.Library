@@ -11,14 +11,36 @@ namespace HillerødSejlklub.Library
         // Metode til at hente og udskrive alle medlemmer
         public void GetAllMembers()
         {
-            foreach (var user in _userData.Values) // Gennemgår alle brugere i SortedDictionary
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("\nMedlemsliste i Hillerød Sejlklub");
+            Console.ResetColor();
+            Console.ForegroundColor= ConsoleColor.DarkGray;
+            Console.WriteLine("-------------------------------------------");
+            Console.ResetColor();
+
+            foreach (var user in _userData.Values)
             {
-                Console.WriteLine("Medlemsliste:");
-               Console.WriteLine($" Navn: {user.Name} -  ID: {user.Id} - Adresse: {user.Adress} - Telefon: {user.Phone} - Email: {user.Email} - Oprettet: {user.Time}");
+                // Navn "fremhæves" i cyan farve
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine($"{user.Name}");
+                Console.ResetColor();
+
+                // Strukur
+                Console.WriteLine($"  ID: {user.Id}");
+                Console.WriteLine($"  Adresse: {user.Adress}");
+                Console.WriteLine($"  Telefon: {user.Phone}");
+                Console.WriteLine($"  Email: {user.Email}");
+                Console.WriteLine($"  Oprettet: {user.Time}");
+
+                // Separator
+                Console.ForegroundColor = ConsoleColor.DarkGray;
+                Console.WriteLine("-------------------------------------------");
+                Console.ResetColor();
             }
         }
 
-      //Denne metode tilføjer en bruger til dictionary
+
+        //Denne metode tilføjer en bruger til dictionary
         public static User AddUser(User user)
         {
             _userData.Add(user.Name, user);

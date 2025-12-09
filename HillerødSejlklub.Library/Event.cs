@@ -16,9 +16,9 @@ public class Event
     public string Location { get; set; }
     public int MaxParticipants { get; set; }
 
-    public const string DateTimeFormat = "dd-MM-yyyy HH:mm"; // Ændrer format til dansk format fra amerikansk format
+    public const string DateTimeFormat = "dd-MM-yyyy HH:mm";
 
-    // Opretter et event og tilføjer det til listen over events
+    // Opretter et event og tilføjer det til listen over _events
     public static Event Create(
         string title,
         DateTime start,
@@ -27,7 +27,7 @@ public class Event
         int participants,
         string location)
     {
-        Event ev = new Event // Ny instans af Event 
+        Event ev = new Event
         {
             Title = title,
             Description = description,
@@ -44,10 +44,31 @@ public class Event
     // Udskriver alle events til konsollen
     public static void PrintAll()
     {
-        foreach (Event ev in _events) // Gennemgår alle events i listen
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.WriteLine("\nEventliste i Hillerød Sejlklub");
+        Console.ResetColor();
+        Console.ForegroundColor= ConsoleColor.DarkGray;
+        Console.WriteLine("-------------------------------------------");
+        Console.ResetColor();
+
+        foreach (Event ev in _events)
         {
-            Console.WriteLine(
-                $"Event: {ev.Title}\nStart: {ev.StartDate.ToString(DateTimeFormat)}\nSlut: {ev.EndDate.ToString(DateTimeFormat)}\nIndhold: {ev.Description}\nDeltagere (max): {ev.MaxParticipants}\nSted: {ev.Location}\n");
+            // Titel
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine(ev.Title);
+            Console.ResetColor();
+
+            // Detaljer
+            Console.WriteLine($"  Start: {ev.StartDate.ToString(DateTimeFormat)}");
+            Console.WriteLine($"  Slut:  {ev.EndDate.ToString(DateTimeFormat)}");
+            Console.WriteLine($"  Sted:  {ev.Location}");
+            Console.WriteLine($"  Deltagere (max): {ev.MaxParticipants}");
+            Console.WriteLine($"  Beskrivelse: {ev.Description}");
+
+            // Separator
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine("-------------------------------------------");
+            Console.ResetColor();
         }
     }
 }

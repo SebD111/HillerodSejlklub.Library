@@ -55,11 +55,35 @@
         // Metode til at hente alle bookinger
         public void GetAll()
         {
-            foreach(Booking booking in _bookings)
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("\nAktive bookinger");
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine("-------------------------------------------");
+            Console.ResetColor();
+
+            foreach (Booking booking in _bookings)
             {
-                Console.WriteLine($"Booking id: {booking.Id}\nBoat: {booking.Boat.BoatName}\nStart: {booking.StartTime}, End: {booking.EndTime}\nUser: {booking.User.Name}\nParticipants: {booking.NrParticipant}\nDestination: {booking.Destination}");
+                // Booking ID som hovedlinje
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine($"Booking ID: {booking.Id}");
+                Console.ResetColor();
+
+                // Detaljer
+                Console.WriteLine($"  Båd: {booking.Boat.BoatName}");
+                Console.WriteLine($"  Bruger: {booking.User.Name}");
+                Console.WriteLine($"  Start: {booking.StartTime}");
+                Console.WriteLine($"  Slut: {booking.EndTime}");
+                Console.WriteLine($"  Deltagere: {booking.NrParticipant}");
+                Console.WriteLine($"  Destination: {booking.Destination}");
+
+                // Separator
+                Console.ForegroundColor = ConsoleColor.DarkGray;
+                Console.WriteLine("-------------------------------------------");
+                Console.ResetColor();
             }
         }
+
         // Metode til at returnere en båd sikkert ved at fjerne bookingen baseret på ID
         public void SafeReturn(int id)
         {
