@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace HillerødSejlklub.Library
@@ -25,5 +26,35 @@ namespace HillerødSejlklub.Library
         public int SailNumber { get; set; }
         public string BoatDimensions { get; set; }
         public int YearOfConstruction { get; set; }
+        public void PrintAllBoats() // Sæt ind i boat class
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("\nBådliste i Hillerød Sejlklub");
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine("-------------------------------------------");
+            Console.ResetColor();
+            foreach (Boat boat in )
+            {
+                Print(boat);
+            }
+             
+        }
+        public virtual void Print(Boat boat)
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine($"ID: {boat.Id} - {boat.BoatName}");
+            Console.ResetColor();
+
+            Console.WriteLine($"  Type: {boat.BoatType}");
+            Console.WriteLine($"  Sejlnummer: {boat.SailNumber}");
+            Console.WriteLine($"  Motor: {boat.MotorInfo}");
+            Console.WriteLine($"  Størrelse: {boat.BoatDimensions}");
+            Console.WriteLine($"  Årgang: {boat.YearOfConstruction}");
+
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine("-------------------------------------------");
+            Console.ResetColor();
+        }
     }// Nogle metoder kan være virtual, så subklasses kan override dem
 }

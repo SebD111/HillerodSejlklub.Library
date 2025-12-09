@@ -50,34 +50,6 @@ namespace HillerødSejlklub.Library
 
         }
 
-        // Denne metode printer alle både i båd dictionary
-        public void PrintAllBoats() // Sæt ind i boat class
-        {
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("\nBådliste i Hillerød Sejlklub");
-            Console.ResetColor();
-            Console.ForegroundColor= ConsoleColor.DarkGray;
-            Console.WriteLine("-------------------------------------------");
-            Console.ResetColor();
-
-            foreach (Boat boat in _boatData.Values)
-            {
-                Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine($"ID: {boat.Id} - {boat.BoatName}");
-                Console.ResetColor();
-
-                Console.WriteLine($"  Type: {boat.BoatType}");
-                Console.WriteLine($"  Sejlnummer: {boat.SailNumber}");
-                Console.WriteLine($"  Motor: {boat.MotorInfo}");
-                Console.WriteLine($"  Størrelse: {boat.BoatDimensions}");
-                Console.WriteLine($"  Årgang: {boat.YearOfConstruction}");
-
-                Console.ForegroundColor = ConsoleColor.DarkGray;
-                Console.WriteLine("-------------------------------------------");
-                Console.ResetColor();
-            }
-        }
-
     }
 
 }
