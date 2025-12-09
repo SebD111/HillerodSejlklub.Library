@@ -6,6 +6,7 @@ namespace HillerødSejlklub.Library
 {
     public class Boat
     {
+        // Constructor der initialiserer en båd og tilføjer den til BoatRepository
         public Boat(int id, string boatType, string boatName, int sailNumber, string motorInfo, string boatDimensions, int yearOfConstruction)
         {
             Id = id;
@@ -17,6 +18,7 @@ namespace HillerødSejlklub.Library
             YearOfConstruction = yearOfConstruction;
             BoatRepository.AddBoat(this);
         }
+        // Auto-Properties for Boat class
         public int Id { get; set; }
         public string BoatType { get; set; }
         public string BoatName { get; set; }

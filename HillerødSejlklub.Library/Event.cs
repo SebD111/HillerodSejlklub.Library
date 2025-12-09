@@ -16,7 +16,7 @@ public class Event
     public string Location { get; set; }
     public int MaxParticipants { get; set; }
 
-    public const string DateTimeFormat = "dd-MM-yyyy HH:mm";
+    public const string DateTimeFormat = "dd-MM-yyyy HH:mm"; // Ændrer format til dansk format fra amerikansk format
 
     // Opretter et event og tilføjer det til listen over events
     public static Event Create(
@@ -27,7 +27,7 @@ public class Event
         int participants,
         string location)
     {
-        Event ev = new Event
+        Event ev = new Event // Ny instans af Event 
         {
             Title = title,
             Description = description,
@@ -44,7 +44,7 @@ public class Event
     // Udskriver alle events til konsollen
     public static void PrintAll()
     {
-        foreach (Event ev in _events)
+        foreach (Event ev in _events) // Gennemgår alle events i listen
         {
             Console.WriteLine(
                 $"Event: {ev.Title}\nStart: {ev.StartDate.ToString(DateTimeFormat)}\nSlut: {ev.EndDate.ToString(DateTimeFormat)}\nIndhold: {ev.Description}\nDeltagere (max): {ev.MaxParticipants}\nSted: {ev.Location}\n");
