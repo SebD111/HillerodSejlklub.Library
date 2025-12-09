@@ -1,17 +1,21 @@
 ﻿using HillerødSejlklub.Library;
+using HillerødSejlklub.Library.HillerødSejlklub.Library;
 
 // Oprettelse af både
 // int id, string boatType, string boatName, int sailNumber, string motorInfo, string boatDimensions, int yearOfConstruction)
 Console.WriteLine();
 
-Boat boat = new Boat(1,"Motorbåd","HavGris",7,"Yamaha 35HK","5M X 2M",2018);
-Boat boat2 = new Boat(2, "Sejlbåd", "Kystens Knald", 88, "Ingen Motor", "7M x 3M", 2015);
-Boat boat3 = new Boat(3, "Jolle", "Karen", 23, "Yamaha 10HK", "4M x 2M", 2012);
-Boat boat4 = new Boat(4, "Racer", "Usain Båd", 33, "Yamaha 250HK", "6M x 3M", 2025);
+
 
 // Udskrivning af alle både
 BoatRepository repository = new BoatRepository();
 repository.PrintAllBoats();
+
+
+// Print af motor info
+var motor = new Motor("Yamaha", "F115", 115, "Benzin", "Udenbords", 2019, "SN-123456");
+Console.WriteLine(motor);
+
 
 // Oprettelse af brugere
 
