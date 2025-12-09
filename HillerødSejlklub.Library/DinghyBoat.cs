@@ -6,7 +6,7 @@ namespace HillerødSejlklub.Library
 {
     public class DinghyBoat: Boat
     {
-        public DinghyBoat (int id, string boatName, int sailNumber, string boatDimensions, int yearOfConstruction, int numberOfOars): base(id, boatName, sailNumber, boatDimensions, yearOfConstruction)
+        public DinghyBoat (int id, string boatName, int sailNumber,Motor motor, string boatDimensions, int yearOfConstruction, int numberOfOars): base(id, boatName, sailNumber, boatDimensions, yearOfConstruction)
         {
             NumberOfOars = numberOfOars;
 
