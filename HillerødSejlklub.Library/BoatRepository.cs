@@ -5,7 +5,7 @@ using System.Text;
 
 namespace HillerødSejlklub.Library
 {
-    public class BoatRepository
+    public class BoatRepository : IBoatRepository
     {
         private static Dictionary<string, Boat> _boatData = new Dictionary<string, Boat>();
 

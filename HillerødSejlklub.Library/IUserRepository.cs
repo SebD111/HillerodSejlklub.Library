@@ -10,7 +10,7 @@ namespace HillerødSejlklub.Library
         User GetByName(string userName);
         User GetById(int id);
         User RemoveByName(string UserName);
-        void UpdateUser(int id, string newAddress = null, string newPhone = null, string newEmail = null);
+        void Update(int id, string newAddress = null, string newPhone = null, string newEmail = null);
  
 
 
