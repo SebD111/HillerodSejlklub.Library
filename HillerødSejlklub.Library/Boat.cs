@@ -22,7 +22,6 @@ namespace HillerødSejlklub.Library
         public int Id { get; set; }
         public string BoatType { get; set; }
         public string BoatName { get; set; }
-        public string MotorInfo { get; set; }
         public int SailNumber { get; set; }
         public string BoatDimensions { get; set; }
         public int YearOfConstruction { get; set; }
@@ -40,7 +39,6 @@ namespace HillerødSejlklub.Library
             return $"ID: {boat.Id} - {boat.BoatName}" +
                 $"  Type: {boat.BoatType}" +
                 $"  Sejlnummer: {boat.SailNumber}" +
-                $"  Motor: {boat.MotorInfo}" +
                 $"  Størrelse: {boat.BoatDimensions}" +
                 $"  Årgang: {boat.YearOfConstruction}" +
                 "-------------------------------------------";
