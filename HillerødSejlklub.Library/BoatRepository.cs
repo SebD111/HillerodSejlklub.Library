@@ -30,7 +30,7 @@ namespace HillerødSejlklub.Library
         }
 
         // Denne metode tilføjer en båd til båd dictionary
-        public static Boat AddBoat(Boat boat)
+        public static Boat Add(Boat boat)
         {
             _boatData.Add(boat.BoatName, boat); // Skal kigges på
             return boat;

@@ -16,7 +16,7 @@ namespace HillerødSejlklub.Library
            //Måske lave en klasse til motor info, lave den abscract base class
             BoatDimensions = boatDimensions;
             YearOfConstruction = yearOfConstruction;
-            BoatRepository.AddBoat(this);
+            BoatRepository.Add(this);
         }
         // Auto-Properties for Boat class
         public int Id { get; set; }
@@ -27,7 +27,7 @@ namespace HillerødSejlklub.Library
         public string BoatDimensions { get; set; }
         public int YearOfConstruction { get; set; }
         // Skal Fixes
-        public void PrintAllBoats() // Sæt ind i boat class
+        public void PrintAll() // Sæt ind i boat class
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("\nBådliste i Hillerød Sejlklub");
