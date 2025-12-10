@@ -5,7 +5,7 @@ namespace HillerødSejlklub.Library
 {
     public interface IEventRepository
     {
-        // Udskriver alle events til konsollen
+        // Udskriver alle events 
         void GetAll();
 
         // Tilføjer et event til samlingen

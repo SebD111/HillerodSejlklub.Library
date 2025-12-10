@@ -6,7 +6,7 @@ namespace HillerødSejlklub.Library
 {
     public class Event
     {
-        // Auto-Properties for Event class
+        // Auto-Properties
         public string Title { get; set; }
         public string Description { get; set; }
         public DateTime StartDate { get; set; }

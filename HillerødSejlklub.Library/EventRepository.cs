@@ -8,7 +8,7 @@ namespace HillerødSejlklub.Library
         // Intern samling af events
         private static readonly List<Event> _events = new List<Event>();
 
-        // Udskriver alle events til konsollen
+        // Udskriver alle events 
         public void GetAll()
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
