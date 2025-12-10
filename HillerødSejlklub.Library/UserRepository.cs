@@ -19,7 +19,7 @@ namespace HillerødSejlklub.Library
             Console.WriteLine("-------------------------------------------");
             Console.ResetColor();
 
-            foreach (var user in _userData.Values.OrderBy(u => u.Id))
+            foreach (var user in _userData.Values)
             {
                 // Navn "fremhæves" i cyan farve
                 Console.ForegroundColor = ConsoleColor.Cyan;
@@ -42,7 +42,7 @@ namespace HillerødSejlklub.Library
 
 
         //Denne metode tilføjer en bruger til dictionary
-        public static User AddU(User user)
+        public static User Add(User user)
         {
             _userData.Add(user.Name, user);
             return user;
@@ -93,7 +93,7 @@ namespace HillerødSejlklub.Library
         }
 
         // Denne metode opdaterer en brugers oplysninger baseret på ID
-        public void UpdateUser(int id, string newAddress = null, string newPhone = null, string newEmail = null)
+        public void Update(int id, string newAddress = null, string newPhone = null, string newEmail = null)
         {
             User userToEdit = GetById(id); // Henter brugeren baseret på ID
 

@@ -18,7 +18,7 @@ namespace HillerødSejlklub.Library
             Phone = phone;
             Email = email;
             Admin = admin;
-            UserRepository.AddU(this); // Tilføjer instansen til UserRepository
+            UserRepository.Add(this); // Tilføjer instansen til UserRepository
             Time = DateTime.Now;
         }
         // Properies
