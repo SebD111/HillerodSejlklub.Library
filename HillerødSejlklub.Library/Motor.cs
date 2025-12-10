@@ -22,7 +22,7 @@ namespace HillerødSejlklub.Library
         public string FuelType { get; set; } // Benzin, Diesel, El
         public int Year { get; set; }
 
-        // Override ToString metode
+        // Override ToString metode for nem udskrift
         public override string ToString()
         {
             return

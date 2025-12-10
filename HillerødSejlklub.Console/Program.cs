@@ -64,12 +64,12 @@ Console.WriteLine();
 var start1 = new DateTime(2025, 06, 02, 13, 00, 00);
 var end1 = new DateTime(2025, 06, 02, 15, 00, 00);
 
-var ev1 = Event.Create("Klubmøde", start1, end1, "Ny hjemmeside", 20, "Hillerød Sejlklub");
+var ev1 = Event.Create("Sommerfrokost", start1, end1, "Spisning med klubben", 50, "Hillerød Sejlklub");
 
 var start2 = new DateTime(2025, 08, 15, 13, 00, 00);
 var end2 = new DateTime(2025, 08, 15, 15, 00, 00);
 
-var ev2 = Event.Create("Årlige Kapløb", start2, end2, "Hurtigeste båd vinder", 50, "Hillerød Sejlklub");
+var ev2 = Event.Create("Årlige Kapløb", start2, end2, "Hurtigeste skipper vinder", 100, "Hillerød Sejlklub");
 
 // Udskrivning af alle events
 Event.PrintAll();

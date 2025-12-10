@@ -18,12 +18,12 @@
             Destination = destination;
             if (CheckBookingDate(startTime, endTime, boat))
             {
-                Console.WriteLine($"Your time is confirmed heres your Id - {Id}");
+                Console.WriteLine($"Din tid er bekræftet, her er dit Id - {Id}");
                 _bookings.Add(this);
             }
             else 
             {
-                Console.WriteLine("The boat is not available in that time slot");
+                Console.WriteLine("Denne båd er ikke tilgængelig i dette tidsrum");
             }
         }
         //Properties
@@ -92,11 +92,11 @@
                 if (booking.Id == id) // Finder bookingen med det givne ID
                 {
                     _bookings.Remove(booking); // Fjerner bookingen fra listen
-                    Console.WriteLine("Welcome back from the trip");
+                    Console.WriteLine("Velkommen tilbage fra din tur");
                     return;
                 }
             }
-            Console.WriteLine("Your booking could not be found");
+            Console.WriteLine("Din booking kunne ikke findes");
         }
 
         // Metode til at tjekke hvilke både der er i vandet i et givent tidsrum
@@ -106,7 +106,7 @@
             {
                 if (start < booking.EndTime && end > booking.StartTime) // Tjekker om bookingen overlapper med det givne tidsrum
                 {
-                    Console.WriteLine($"{booking.Boat.BoatName} is in the water. Time slot {booking.StartTime} - {booking.EndTime}");
+                    Console.WriteLine($"{booking.Boat.BoatName} er på vandet. Tidsrum {booking.StartTime} - {booking.EndTime}");
                 }
             }
         }
