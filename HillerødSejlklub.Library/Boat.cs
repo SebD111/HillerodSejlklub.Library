@@ -29,34 +29,30 @@ namespace HillerødSejlklub.Library
         // Skal Fixes
         public void PrintAll() // Sæt ind i boat class
         {
+            OverLay();
+            foreach (Boat boat in BoatRepository.GetAll())
+            {
+                Console.WriteLine(ToString(boat));
+            }
+        }
+        public virtual string ToString(Boat boat)
+        {
+            return $"ID: {boat.Id} - {boat.BoatName}" +
+                $"  Type: {boat.BoatType}" +
+                $"  Sejlnummer: {boat.SailNumber}" +
+                $"  Motor: {boat.MotorInfo}" +
+                $"  Størrelse: {boat.BoatDimensions}" +
+                $"  Årgang: {boat.YearOfConstruction}" +
+                "-------------------------------------------";
+        }
+        private void OverLay() 
+        {
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("\nBådliste i Hillerød Sejlklub");
             Console.ResetColor();
             Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine("-------------------------------------------");
             Console.ResetColor();
-            
-            foreach (Boat boat in BoatRepository.GetAll())
-            {
-                Print(boat);
-            }
-             
         }
-        public virtual void Print(Boat boat)
-        {
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine($"ID: {boat.Id} - {boat.BoatName}");
-            Console.ResetColor();
-
-            Console.WriteLine($"  Type: {boat.BoatType}");
-            Console.WriteLine($"  Sejlnummer: {boat.SailNumber}");
-            Console.WriteLine($"  Motor: {boat.MotorInfo}");
-            Console.WriteLine($"  Størrelse: {boat.BoatDimensions}");
-            Console.WriteLine($"  Årgang: {boat.YearOfConstruction}");
-
-            Console.ForegroundColor = ConsoleColor.DarkGray;
-            Console.WriteLine("-------------------------------------------");
-            Console.ResetColor();
-        }
-    }// Nogle metoder kan være virtual, så subklasses kan override dem
+    }
 }
