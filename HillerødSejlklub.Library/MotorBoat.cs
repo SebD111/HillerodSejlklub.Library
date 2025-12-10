@@ -11,26 +11,19 @@ namespace HillerødSejlklub.Library
             Motor = motor;
         }
         public Motor Motor { set; get; }
-        public override void Print(Boat boat)
+        public override string ToString(Boat boat)
         {
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine($"ID: {boat.Id} - {boat.BoatName}");
-            Console.ResetColor();
-
-            Console.WriteLine($"  Type: {boat.BoatType}");
-            Console.WriteLine($"  Sejlnummer: {boat.SailNumber}");
-            Console.WriteLine($"  Motor: {boat.MotorInfo}");
-            Console.WriteLine($"  Størrelse: {boat.BoatDimensions}");
-            Console.WriteLine($"  Årgang: {boat.YearOfConstruction}");
-            Console.WriteLine("-------------Boat Motor-------------");
-            Console.WriteLine($"  Årgang: {Motor.Manufacturer}");
-            Console.WriteLine($"  Årgang: {Motor.FuelType}");
-            Console.WriteLine($"  Årgang: {Motor.Horsepower}");
-            Console.WriteLine($"  Årgang: {Motor.Year}");
-
-            Console.ForegroundColor = ConsoleColor.DarkGray;
-            Console.WriteLine("-------------------------------------------");
-            Console.ResetColor();
+            return
+         
+              $"    Id: {Id}\n" +
+              $"    Navn: {BoatName}\n" +
+              $"    Sejlnummer: {SailNumber}\n" +
+              $"    Dimensioner: {BoatDimensions}\n" +
+              $"    Byggeår: {YearOfConstruction}\n" + 
+              Motor.ToString();
+            
         }
+
+
     }
 }
