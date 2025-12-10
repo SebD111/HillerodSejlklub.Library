@@ -14,5 +14,18 @@ namespace HillerødSejlklub.Library
 
         public int NumberOfOars { get; set; }
 
+        public override string ToString()
+        {
+            return
+                $"    Jolle:\n" +
+                $"    Id: {Id}\n" +
+                $"    Navn: {BoatName}\n" +
+                $"    Sejlnummer: {SailNumber}\n" +
+                $"    Dimensioner: {BoatDimensions}\n" +
+                $"    Byggeår: {YearOfConstruction}\n" +
+                $"    Antal årer: {NumberOfOars}";
+
+        }
+
     }
 }

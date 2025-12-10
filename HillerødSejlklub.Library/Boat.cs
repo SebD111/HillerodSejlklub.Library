@@ -36,12 +36,7 @@ namespace HillerødSejlklub.Library
         }
         public virtual string ToString(Boat boat)
         {
-            return $"ID: {boat.Id} - {boat.BoatName}" +
-                $"  Type: {boat.BoatType}" +
-                $"  Sejlnummer: {boat.SailNumber}" +
-                $"  Størrelse: {boat.BoatDimensions}" +
-                $"  Årgang: {boat.YearOfConstruction}" +
-                "-------------------------------------------";
+            return "";
         }
         private void OverLay() 
         {
