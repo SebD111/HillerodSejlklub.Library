@@ -34,8 +34,8 @@
             Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine("-------------------------------------------");
             Console.ResetColor();
-
-            foreach (Booking booking in _bookings)
+            BookingRepository repository = new BookingRepository();
+            foreach (Booking booking in repository.GetAll())
             {
                 // Booking ID som hovedlinje
                 Console.ForegroundColor = ConsoleColor.Cyan;
