@@ -60,17 +60,38 @@ foreach (Boat boat in boatRepo.GetAll())
 }
 Console.WriteLine();
 
-// Oprettelse af events
+
+// Oprettelse af events med repository
 var start1 = new DateTime(2025, 06, 02, 13, 00, 00);
 var end1 = new DateTime(2025, 06, 02, 15, 00, 00);
 
-var ev1 = Event.Create("Sommerfrokost", start1, end1, "Spisning med klubben", 50, "Hillerød Sejlklub");
+var ev1 = new Event
+{
+    Title = "Sommerfrokost",
+    StartDate = start1,
+    EndDate = end1,
+    Description = "Spisning med klubben",
+    MaxParticipants = 50,
+    Location = "Hillerød Sejlklub"
+};
 
 var start2 = new DateTime(2025, 08, 15, 13, 00, 00);
 var end2 = new DateTime(2025, 08, 15, 15, 00, 00);
 
-var ev2 = Event.Create("Årlige Kapløb", start2, end2, "Hurtigeste skipper vinder", 100, "Hillerød Sejlklub");
+var ev2 = new Event
+{
+    Title = "Årlige Kapløb",
+    StartDate = start2,
+    EndDate = end2,
+    Description = "Hurtigeste skipper vinder",
+    MaxParticipants = 100,
+    Location = "Hillerød Sejlklub"
+};
+
+// Brug IEventRepository/EventRepository til at håndtere events
+IEventRepository eventRepo = new EventRepository();
+eventRepo.Add(ev1);
+eventRepo.Add(ev2);
 
 // Udskrivning af alle events
-Event.PrintAll();
-
+eventRepo.GetAll();
