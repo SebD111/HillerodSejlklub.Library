@@ -28,7 +28,7 @@ namespace HillerødSejlklub.Library
         public void PrintAll() // Sæt ind i boat class
         {
             OverLay();
-             BoatRepository repo = new BoatRepository();
+            BoatRepository repo = new BoatRepository();
 
             foreach (Boat boat in repo.GetAll())
             {
