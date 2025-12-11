@@ -56,7 +56,7 @@ namespace HillerødSejlklub.Library
         }
 
         // Denne metode henter en bruger baseret på ID
-        public User GetById(int id)
+        private User GetById(int id)
         {
 
             foreach (User user in _userData.Values) // Gennemgår alle brugere i Dictionary
