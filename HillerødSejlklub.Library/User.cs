@@ -18,7 +18,6 @@ namespace HillerødSejlklub.Library
             Phone = phone;
             Email = email;
             Admin = admin;
-            UserRepository.Add(this); // Tilføjer instansen til UserRepository
             Time = DateTime.Now;
         }
         // Properies
@@ -33,6 +32,46 @@ namespace HillerødSejlklub.Library
         public bool Admin { get; set; }
 
         public DateTime Time { get; set; }
+
+        public void GetAll()
+        {
+            Overlay();
+            UserRepository userRepository = new UserRepository();
+            foreach (User user in userRepository.GetAll())
+            {
+                DisplayUserInfo(user);
+            }
+        }
+
+        private void Overlay()
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("\nMedlemsliste i Hillerød Sejlklub");
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine("-------------------------------------------");
+            Console.ResetColor();
+        }
+
+        private void DisplayUserInfo(User user)
+        {
+            // Navn "fremhæves" i cyan farve
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine($"{Name}");
+            Console.ResetColor();
+
+            // Strukur
+            Console.WriteLine($"  ID: {Id}");
+            Console.WriteLine($"  Adresse: {Adress}");
+            Console.WriteLine($"  Telefon: {Phone}");
+            Console.WriteLine($"  Email: {Email}");
+            Console.WriteLine($"  Oprettet: {Time}");
+
+            // Separator
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine("-------------------------------------------");
+            Console.ResetColor();
+        }
 
     }
 

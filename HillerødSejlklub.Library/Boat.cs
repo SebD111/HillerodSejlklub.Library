@@ -16,7 +16,6 @@ namespace HillerødSejlklub.Library
            //Måske lave en klasse til motor info, lave den abscract base class
             BoatDimensions = boatDimensions;
             YearOfConstruction = yearOfConstruction;
-            BoatRepository.Add(this);
         }
         // Auto-Properties for Boat class
         public int Id { get; set; }
@@ -29,7 +28,9 @@ namespace HillerødSejlklub.Library
         public void PrintAll() // Sæt ind i boat class
         {
             OverLay();
-            foreach (Boat boat in BoatRepository.GetAll())
+             BoatRepository repo = new BoatRepository();
+
+            foreach (Boat boat in repo.GetAll())
             {
                 Console.WriteLine(ToString(boat));
             }

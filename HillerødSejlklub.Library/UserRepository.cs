@@ -9,37 +9,10 @@ namespace HillerødSejlklub.Library
         private static Dictionary<string, User> _userData = new Dictionary<string, User>(); // SortedDictionary til at gemme brugere med navn som nøgle og sortere dem alfabetisk
 
         // Metode til at hente og udskrive alle medlemmer
-        public void GetAll()
+        public List<User> GetAll()
         {
-           
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("\nMedlemsliste i Hillerød Sejlklub");
-            Console.ResetColor();
-            Console.ForegroundColor= ConsoleColor.DarkGray;
-            Console.WriteLine("-------------------------------------------");
-            Console.ResetColor();
-
-            foreach (var user in _userData.Values)
-            {
-                // Navn "fremhæves" i cyan farve
-                Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine($"{user.Name}");
-                Console.ResetColor();
-
-                // Strukur
-                Console.WriteLine($"  ID: {user.Id}");
-                Console.WriteLine($"  Adresse: {user.Adress}");
-                Console.WriteLine($"  Telefon: {user.Phone}");
-                Console.WriteLine($"  Email: {user.Email}");
-                Console.WriteLine($"  Oprettet: {user.Time}");
-
-                // Separator
-                Console.ForegroundColor = ConsoleColor.DarkGray;
-                Console.WriteLine("-------------------------------------------");
-                Console.ResetColor();
-            }
+            return _userData.Values.ToList();
         }
-
 
         //Denne metode tilføjer en bruger til dictionary
         public static User Add(User user)
@@ -122,5 +95,7 @@ namespace HillerødSejlklub.Library
                 Console.WriteLine($"Kunne ikke finde medlem med id: {id}");
             }
         }
+
+     
     }
 }

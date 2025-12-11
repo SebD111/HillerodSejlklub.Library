@@ -46,7 +46,7 @@ Console.WriteLine();
 // Udskrivning af både med/uden motor 
 Console.WriteLine("Både og motorinfo:");
 var boatRepo = new BoatRepository();
-foreach (var boat in BoatRepository.GetAll())
+foreach (Boat boat in boatRepo.GetAll())
 {
     if (boat is MotorBoat motorBoat && motorBoat.Motor != null)
     {

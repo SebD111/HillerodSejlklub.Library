@@ -10,7 +10,7 @@ namespace HillerødSejlklub.Library
         private static Dictionary<string, Boat> _boatData = new Dictionary<string, Boat>();
 
         //Denne metode henter alle både i båd dictionary
-        public static List<Boat> GetAll()
+        public List<Boat> GetAll()
         {
             return _boatData.Values.ToList();
         }
@@ -30,24 +30,22 @@ namespace HillerødSejlklub.Library
         }
 
         // Denne metode tilføjer en båd til båd dictionary
-        public static Boat Add(Boat boat)
+        public void Add(Boat boat)
         {
             _boatData.Add(boat.BoatName, boat); // Skal kigges på
-            return boat;
         }
 
         // Denne metode fjerner en båd ud fra id
-        public Boat Remove(int id)
+        public void Remove(int id)
         {
             Boat BoatRemove = GetById(id); //Henter båden ud fra id
 
             if (BoatRemove != null) //Tjekker om båden findes
             {
                 _boatData.Remove(BoatRemove.BoatName); // Fjerner båden fra båd dictionary
-                return BoatRemove;
             }
 
-            return null;
+          
         }
     }
 }

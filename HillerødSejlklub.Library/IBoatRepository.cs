@@ -10,10 +10,5 @@ namespace HillerødSejlklub.Library
         Boat GetById(int id);
         List<Boat> GetAll();
         void Remove(int id);
-        void PrintAll();
-
-
-
-
     }
 }
