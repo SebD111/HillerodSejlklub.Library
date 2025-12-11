@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Text;
 
 namespace HillerødSejlklub.Library
@@ -17,33 +18,39 @@ namespace HillerødSejlklub.Library
         //Denne metode tilføjer en bruger til dictionary
         public static User Add(User user)
         {
-            _userData.Add(user.Name, user);
-            return user;
-        }
+            try
+            {
+                _userData.Add(user.Name, user);
+                return user;
+            } catch(ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+           
+        } 
+       
 
         //Denne metode henter en bruger baseret på navn
         public User GetByName(string userName)
         {
-            foreach (User user in _userData.Values) // Gennemgår alle brugere i Dictionary
-            {
-                if (user.Name == userName) // Tjekker om brugerens navn matcher det givne navn
-                {
-                    return user;
-                }
-            }
-            return null;
+            return _userData[userName];
         }
 
         // Denne metode fjerner en bruger baseret på navn
         public User RemoveByName(string UserName)
         {
             User UserRemove = GetByName(UserName); // Tjekker om brugeren findes
-
-            if (UserRemove != null) // Hvis brugeren findes, fjernes den fra Dictionary
             {
-                _userData.Remove(UserRemove.Name); // Fjerner brugeren fra Dictionary
-                Console.WriteLine("Medlem Fjernet:");
-                return UserRemove;
+                try {
+                    _userData.Remove(UserRemove.Name); // Fjerner brugeren fra Dictionary
+                    Console.WriteLine("Medlem Fjernet:");
+                    return UserRemove;
+                } catch (ArgumentNullException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                
             }
             return null;
         }

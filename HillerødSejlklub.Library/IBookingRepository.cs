@@ -8,7 +8,6 @@ namespace HillerødSejlklub.Library
     {
         bool CheckBookingDate(DateTime start, DateTime end, Boat boat);
         void SafeReturn(int id);
-
-
+        void Add(Booking booking);
     }
 }
