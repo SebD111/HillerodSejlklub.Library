@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
+using System.Numerics;
 using System.Text;
+using System.Xml.Linq;
 
 namespace HillerødSejlklub.Library
 {
@@ -16,7 +18,7 @@ namespace HillerødSejlklub.Library
         }
 
         //Denne metode tilføjer en bruger til dictionary
-        public static User Add(User user)
+        public User Add(User user)
         {
             try
             {
@@ -28,21 +30,29 @@ namespace HillerødSejlklub.Library
                 return null;
             }
            
-        } 
-       
+        }
+
 
         //Denne metode henter en bruger baseret på navn
         public User GetByName(string userName)
         {
-            return _userData[userName];
+            try
+            {
+                return _userData[userName];
+            }
+            catch (KeyNotFoundException ex)
+            {
+                throw new ArgumentNullException($"Bruger med navn '{userName}' blev ikke fundet.");
+            }
         }
 
         // Denne metode fjerner en bruger baseret på navn
         public User RemoveByName(string UserName)
         {
-            User UserRemove = GetByName(UserName); // Tjekker om brugeren findes
+             // Tjekker om brugeren findes
             {
                 try {
+                    User UserRemove = GetByName(UserName);
                     _userData.Remove(UserRemove.Name); // Fjerner brugeren fra Dictionary
                     Console.WriteLine("Medlem Fjernet:");
                     return UserRemove;
@@ -56,7 +66,7 @@ namespace HillerødSejlklub.Library
         }
 
         // Denne metode henter en bruger baseret på ID
-        private User GetById(int id)
+        public User GetById(int id)
         {
 
             foreach (User user in _userData.Values) // Gennemgår alle brugere i Dictionary
@@ -102,7 +112,49 @@ namespace HillerødSejlklub.Library
                 Console.WriteLine($"Kunne ikke finde medlem med id: {id}");
             }
         }
+        public void PrintAll()
+        {
+            Overlay();
+            UserRepository userRepository = new UserRepository();
+            foreach (User user in userRepository.GetAll())
+            {
+                Print(user);
+            }
+        }
 
-     
+        private void Overlay()
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("\nMedlemsliste i Hillerød Sejlklub");
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine("-------------------------------------------");
+            Console.ResetColor();
+        }
+
+        private void Print(User user)
+        {
+            // Navn "fremhæves" i cyan farve
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine($"{user.Name}");
+            Console.ResetColor();
+
+            // Strukur
+            Console.WriteLine($"  ID: {user.Id}");
+            Console.WriteLine($"  Adresse: {user.Adress}");
+            Console.WriteLine($"  Telefon: {user.Phone}");
+            Console.WriteLine($"  Email: {user.Email}");
+            Console.WriteLine($"  Oprettet: {user.Time}");
+
+            // Separator
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine("-------------------------------------------");
+            Console.ResetColor();
+        }
+        public int Count()
+        { 
+            return _userData.Count;
+        }
+
     }
 }

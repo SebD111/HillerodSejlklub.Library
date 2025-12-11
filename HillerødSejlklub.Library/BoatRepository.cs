@@ -44,8 +44,25 @@ namespace HillerødSejlklub.Library
             {
                 _boatData.Remove(BoatRemove.BoatName); // Fjerner båden fra båd dictionary
             }
+        }
+        public void PrintAll() // Sæt ind i boat class
+        {
+            OverLay();
+            BoatRepository repo = new BoatRepository();
 
-          
+            foreach (Boat boat in repo.GetAll())
+            {
+                Console.WriteLine(boat.ToString(boat));
+            }
+        }
+        private void OverLay()
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("\nBådliste i Hillerød Sejlklub");
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine("-------------------------------------------");
+            Console.ResetColor();
         }
     }
 }

@@ -6,7 +6,7 @@ namespace HillerødSejlklub.Library
 {
     public class DinghyBoat: Boat
     {
-        public DinghyBoat (int id, string boatName, int sailNumber,Motor motor, string boatDimensions, int yearOfConstruction, int numberOfOars): base(id, boatName, sailNumber, boatDimensions, yearOfConstruction)
+        public DinghyBoat (int id, string boatName, int sailNumber, string boatDimensions, int yearOfConstruction, int numberOfOars): base(id, boatName, sailNumber, boatDimensions, yearOfConstruction)
         {
             NumberOfOars = numberOfOars;
 
@@ -14,18 +14,19 @@ namespace HillerødSejlklub.Library
 
         public int NumberOfOars { get; set; }
 
-        public override string ToString()
+        public override string ToString(Boat boat)
         {
             return
-                $"    Jolle:\n" +
+                "--------------------------------------- "+
+                $"  \nJolle info:\n" +
                 $"    Id: {Id}\n" +
                 $"    Navn: {BoatName}\n" +
                 $"    Sejlnummer: {SailNumber}\n" +
                 $"    Dimensioner: {BoatDimensions}\n" +
                 $"    Byggeår: {YearOfConstruction}\n" +
-                $"    Antal årer: {NumberOfOars}";
-
+                $"    Antal årer: {NumberOfOars}\n"+
+                "--------------------------------------- " +
+                "\n"; ;
         }
-
     }
 }

@@ -14,16 +14,19 @@ namespace HillerødSejlklub.Library
 
         public string SailVolume { get; set; }
 
-        public override string ToString()
+        public override string ToString(Boat boat)
         {
             return
-                $"    Sejlbåd:\n" +
+                 "--------------------------------------- "+
+                $"  \nSejlbåd info:\n" +
                 $"    Id: {Id}\n" +
                 $"    Navn: {BoatName}\n" +
                 $"    Sejlnummer: {SailNumber}\n" +
                 $"    Dimensioner: {BoatDimensions}\n" +
                 $"    Byggeår: {YearOfConstruction}\n" +
-                $"    Sejlvolumen: {SailVolume}";
+                $"    Sejlvolumen: {SailVolume}\n"+ 
+                "--------------------------------------- " +
+                "\n";
         }
     }
 }

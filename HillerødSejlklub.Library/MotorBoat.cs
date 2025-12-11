@@ -14,16 +14,15 @@ namespace HillerødSejlklub.Library
         public override string ToString(Boat boat)
         {
             return
-         
+               "--------------------------------------- "+
+              $"  \nMotorbåd info:\n" +
               $"    Id: {Id}\n" +
               $"    Navn: {BoatName}\n" +
               $"    Sejlnummer: {SailNumber}\n" +
               $"    Dimensioner: {BoatDimensions}\n" +
-              $"    Byggeår: {YearOfConstruction}\n" + 
-              Motor.ToString();
-            
+              $"    Byggeår: {YearOfConstruction}\n\n" + 
+              Motor.ToString() + "\n" +
+               "--------------------------------------- " + "\n";
         }
-
-
     }
 }

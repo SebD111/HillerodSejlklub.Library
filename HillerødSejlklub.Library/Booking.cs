@@ -26,7 +26,7 @@
         public string Destination { get; set; }   
 
         // Metode til at hente alle bookinger
-        public void GetAll()
+        public void PrintAll()
         {
             BookingRepository repository = new BookingRepository();
             OverLay();

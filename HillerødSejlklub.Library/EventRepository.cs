@@ -9,35 +9,13 @@ namespace HillerødSejlklub.Library
         private static readonly List<Event> _events = new List<Event>();
 
         // Udskriver alle events 
-        public void GetAll()
+        public void PrintAll()
         {
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("\nEventliste i Hillerød Sejlklub");
-            Console.ResetColor();
-            Console.ForegroundColor = ConsoleColor.DarkGray;
-            Console.WriteLine("-------------------------------------------");
-            Console.ResetColor();
-
+            OverLay();
             for (int i = 0; i < _events.Count; i++)
             {
-
                 Event ev = _events[i];
-
-                {
-                    Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.WriteLine(ev.Title);
-                    Console.ResetColor();
-
-                    Console.WriteLine($"  Start: {ev.StartDate.ToString(Event.DateTimeFormat)}");
-                    Console.WriteLine($"  Slut:  {ev.EndDate.ToString(Event.DateTimeFormat)}");
-                    Console.WriteLine($"  Sted:  {ev.Location}");
-                    Console.WriteLine($"  Deltagere (max): {ev.MaxParticipants}");
-                    Console.WriteLine($"  Beskrivelse: {ev.Description}");
-
-                    Console.ForegroundColor = ConsoleColor.DarkGray;
-                    Console.WriteLine("-------------------------------------------");
-                    Console.ResetColor();
-                }
+                PrintEvent(ev);
             }
         }
 
@@ -48,14 +26,16 @@ namespace HillerødSejlklub.Library
             {
                 return null;
             }
-
-            _events.Add(ev);
-            return ev;
+            else
+            {
+                _events.Add(ev);
+                return ev;
+            }
         }
 
         // Finder event baseret på præcis titel
         public Event GetByTitle(string title)
-        {
+        { 
             if (string.IsNullOrWhiteSpace(title))
             {
                 return null;
@@ -70,7 +50,6 @@ namespace HillerødSejlklub.Library
                     return thisEvent;
                 }
             }
-
             return null;
         }
 
@@ -84,12 +63,37 @@ namespace HillerødSejlklub.Library
                 Console.WriteLine("Event Fjernet:");
                 return ev;
             }
-
-            return null;
+            else
+            {
+                return null;
+            }
         }
+        private void OverLay() 
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("\nEventliste i Hillerød Sejlklub");
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine("-------------------------------------------");
+            Console.ResetColor();
+        }
+        private void PrintEvent(Event ev) 
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine(ev.Title);
+            Console.ResetColor();
 
+            Console.WriteLine($"  Start: {ev.StartDate.ToString(Event.DateTimeFormat)}");
+            Console.WriteLine($"  Slut:  {ev.EndDate.ToString(Event.DateTimeFormat)}");
+            Console.WriteLine($"  Sted:  {ev.Location}");
+            Console.WriteLine($"  Deltagere (max): {ev.MaxParticipants}");
+            Console.WriteLine($"  Beskrivelse: {ev.Description}");
+
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine("-------------------------------------------");
+            Console.ResetColor();
+        }
     }
-
 }
 
 

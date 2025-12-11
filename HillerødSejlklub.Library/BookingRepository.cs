@@ -12,7 +12,8 @@ namespace HillerødSejlklub.Library
         {
             if (CheckBookingDate(booking.StartTime, booking.EndTime, booking.Boat))
             {
-                Console.WriteLine($"Din tid er bekræftet, her er dit Id - {booking.Id}");
+                Console.WriteLine($"Din tid er bekræftet");
+                booking.Print(booking);
                 _bookings.Add(booking);
             }
             else

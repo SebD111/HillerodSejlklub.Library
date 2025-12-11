@@ -26,7 +26,7 @@ namespace HillerødSejlklub.Library
         public override string ToString()
         {
             return
-                $"  Motor:\n" +
+                $"    Motorinfo:\n" +
                 $"    Fabrikat: {Manufacturer}\n" +
                 $"    Hestekræfter: {Horsepower} hk\n" +
                 $"    Brændstof: {FuelType}\n" +

@@ -25,28 +25,10 @@ namespace HillerødSejlklub.Library
         public string BoatDimensions { get; set; }
         public int YearOfConstruction { get; set; }
         // Skal Fixes
-        public void PrintAll() // Sæt ind i boat class
-        {
-            OverLay();
-            BoatRepository repo = new BoatRepository();
-
-            foreach (Boat boat in repo.GetAll())
-            {
-                Console.WriteLine(ToString(boat));
-            }
-        }
+        
         public virtual string ToString(Boat boat)
         {
             return "";
-        }
-        private void OverLay() 
-        {
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("\nBådliste i Hillerød Sejlklub");
-            Console.ResetColor();
-            Console.ForegroundColor = ConsoleColor.DarkGray;
-            Console.WriteLine("-------------------------------------------");
-            Console.ResetColor();
         }
     }
 }
