@@ -18,21 +18,26 @@ namespace HillerødSejlklub.Library
             Console.WriteLine("-------------------------------------------");
             Console.ResetColor();
 
-            foreach (Event ev in _events)
+            for (int i = 0; i < _events.Count; i++)
             {
-                Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine(ev.Title);
-                Console.ResetColor();
 
-                Console.WriteLine($"  Start: {ev.StartDate.ToString(Event.DateTimeFormat)}");
-                Console.WriteLine($"  Slut:  {ev.EndDate.ToString(Event.DateTimeFormat)}");
-                Console.WriteLine($"  Sted:  {ev.Location}");
-                Console.WriteLine($"  Deltagere (max): {ev.MaxParticipants}");
-                Console.WriteLine($"  Beskrivelse: {ev.Description}");
+                Event ev = _events[i];
 
-                Console.ForegroundColor = ConsoleColor.DarkGray;
-                Console.WriteLine("-------------------------------------------");
-                Console.ResetColor();
+                {
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine(ev.Title);
+                    Console.ResetColor();
+
+                    Console.WriteLine($"  Start: {ev.StartDate.ToString(Event.DateTimeFormat)}");
+                    Console.WriteLine($"  Slut:  {ev.EndDate.ToString(Event.DateTimeFormat)}");
+                    Console.WriteLine($"  Sted:  {ev.Location}");
+                    Console.WriteLine($"  Deltagere (max): {ev.MaxParticipants}");
+                    Console.WriteLine($"  Beskrivelse: {ev.Description}");
+
+                    Console.ForegroundColor = ConsoleColor.DarkGray;
+                    Console.WriteLine("-------------------------------------------");
+                    Console.ResetColor();
+                }
             }
         }
 
@@ -56,11 +61,13 @@ namespace HillerødSejlklub.Library
                 return null;
             }
 
-            foreach (Event ev in _events)
+            for (int i = 0; i <_events.Count; i++)
             {
-                if (ev.Title == title)
+                Event thisEvent = _events[i];
+                
+                if (thisEvent.Title == title)
                 {
-                    return ev;
+                    return thisEvent;
                 }
             }
 
