@@ -28,32 +28,11 @@
         // Metode til at hente alle bookinger
         public void GetAll()
         {
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("\nAktive bookinger");
-            Console.ResetColor();
-            Console.ForegroundColor = ConsoleColor.DarkGray;
-            Console.WriteLine("-------------------------------------------");
-            Console.ResetColor();
             BookingRepository repository = new BookingRepository();
+            OverLay();
             foreach (Booking booking in repository.GetAll())
             {
-                // Booking ID som hovedlinje
-                Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine($"Booking ID: {booking.Id}");
-                Console.ResetColor();
-
-                // Detaljer
-                Console.WriteLine($"  Båd: {booking.Boat.BoatName}");
-                Console.WriteLine($"  Bruger: {booking.User.Name}");
-                Console.WriteLine($"  Start: {booking.StartTime}");
-                Console.WriteLine($"  Slut: {booking.EndTime}");
-                Console.WriteLine($"  Deltagere: {booking.NrParticipant}");
-                Console.WriteLine($"  Destination: {booking.Destination}");
-
-                // Separator
-                Console.ForegroundColor = ConsoleColor.DarkGray;
-                Console.WriteLine("-------------------------------------------");
-                Console.ResetColor();
+                Print(booking);
             }
         }
 
@@ -69,6 +48,35 @@
                     Console.WriteLine($"{booking.Boat.BoatName} er på vandet. Tidsrum {booking.StartTime} - {booking.EndTime}");
                 }
             }
+        }
+        public void OverLay() 
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("\nAktive bookinger");
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine("-------------------------------------------");
+            Console.ResetColor();
+        }
+        public void Print(Booking booking) 
+        {
+            // Booking ID som hovedlinje
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine($"Booking ID: {booking.Id}");
+            Console.ResetColor();
+
+            // Detaljer
+            Console.WriteLine($"  Båd: {booking.Boat.BoatName}");
+            Console.WriteLine($"  Bruger: {booking.User.Name}");
+            Console.WriteLine($"  Start: {booking.StartTime}");
+            Console.WriteLine($"  Slut: {booking.EndTime}");
+            Console.WriteLine($"  Deltagere: {booking.NrParticipant}");
+            Console.WriteLine($"  Destination: {booking.Destination}");
+
+            // Separator
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine("-------------------------------------------");
+            Console.ResetColor();
         }
     }
 }
