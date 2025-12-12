@@ -13,7 +13,7 @@ namespace HillerødSejlklub.Library
         public DateTime EndDate { get; set; }
         public string Location { get; set; }
         public int MaxParticipants { get; set; }
-
+        public List<User> ParticipantList { get; set; } = new List<User>();
         public const string DateTimeFormat = "dd-MM-yyyy HH:mm";
     }
 }

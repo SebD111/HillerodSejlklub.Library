@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 
 namespace HillerødSejlklub.Library
 {
@@ -92,6 +93,44 @@ namespace HillerødSejlklub.Library
             Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine("-------------------------------------------");
             Console.ResetColor();
+        }
+        // Denne metode tilføjer en bruger til et event
+        public void AddUserToEvent(string eventTitle,int userId, UserRepository userRepository)
+        {
+            Event ev = GetByTitle(eventTitle); // 
+
+            if (ev == null) // Tjekker om eventet findes 
+            {
+                Console.WriteLine($"{eventTitle} findes ikke");
+                return;
+            }
+                
+            User user = userRepository.GetById(userId); 
+            if (user == null) //Tjekker om brugeren findes
+            {
+                Console.WriteLine($"Bruger med ID {userId} findes ikke");
+                return;
+            }
+
+            if(ev.ParticipantList.Count >= ev.MaxParticipants) // Tjekker om der er plads til flere i eventet
+            {
+                Console.WriteLine($"{ev.Title} er fuldt booket");
+                Console.WriteLine($"Der er {Count()} medlemmere tilmedt til eventet ud af {ev.MaxParticipants}");
+            }
+            else
+
+            {
+                ev.ParticipantList.Add(user); // Tilføjer en user til Participantlist
+                Console.WriteLine($"{user.Name} er nu tilføjet");
+                Console.WriteLine($"Der er {Count()} medlemmere tilmedt til eventet ud af {ev.MaxParticipants}");
+            }
+           
+        } 
+
+
+        public int Count()
+        {
+            return _events.Count;
         }
     }
 }

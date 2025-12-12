@@ -122,4 +122,6 @@ eventRepo.PrintAll();
 
 Event eventTestGetByeTitle = eventRepo.GetByTitle("Årlige Kapløb");
 
-Console.WriteLine(eventTestGetByeTitle.Title);
+//Console.WriteLine(eventTestGetByeTitle.Title);
+
+eventRepo.AddUserToEvent("Årlige Kapløb", 100, userRepository);
