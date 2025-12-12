@@ -9,7 +9,7 @@ namespace HillerødSejlklub.Library
         void PrintAll();
 
         // Tilføjer et event til samlingen
-        Event Add(Event ev);
+        Event Add(Event ev);    
 
         // Finder et event baseret på titel 
         Event GetByTitle(string title);

@@ -14,17 +14,6 @@ namespace HillerødSejlklub.Library
     };
 
 
-        // Udskriver alle events 
-        public void PrintAll()
-        {
-            OverLay();
-            for (int i = 0; i < _events.Count; i++)
-            {
-                Event ev = _events[i];
-                PrintEvent(ev);
-            }
-        }
-
         // Tilføjer event til samlingen
         public Event Add(Event ev)
         {
@@ -74,6 +63,47 @@ namespace HillerødSejlklub.Library
                 return null;
             }
         }
+        public void AddUserToEvent(string eventTitle, int userId, UserRepository userRepository)
+        {
+            Event ev = GetByTitle(eventTitle); // 
+
+            if (ev == null) // Tjekker om eventet findes 
+            {
+                Console.WriteLine($"{eventTitle} findes ikke");
+                return;
+            }
+
+            User user = userRepository.GetById(userId);
+            if (user == null) //Tjekker om brugeren findes
+            {
+                Console.WriteLine($"Bruger med ID {userId} findes ikke");
+                return;
+            }
+
+            if (ev.ParticipantList.Count >= ev.MaxParticipants) // Tjekker om der er plads til flere i eventet
+            {
+                Console.WriteLine($"{ev.Title} er fuldt booket");
+                Console.WriteLine($"Der er {ev.ParticipantList.Count} medlemmere tilmedt til eventet ud af {ev.MaxParticipants}");
+            }
+            else
+
+            {
+                ev.ParticipantList.Add(user); // Tilføjer en user til Participantlist
+                Console.WriteLine($"{user.Name} er nu tilføjet");
+                Console.WriteLine($"Der er {ev.ParticipantList.Count} medlemmere tilmedt til eventet ud af {ev.MaxParticipants}");
+            }
+
+        }
+        // Udskriver alle events i samlingen
+        public void PrintAll()
+        {
+            OverLay();
+            for (int i = 0; i < _events.Count; i++)
+            {
+                Event ev = _events[i];
+                Print(ev);
+            }
+        }
         private void OverLay() 
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -83,7 +113,7 @@ namespace HillerødSejlklub.Library
             Console.WriteLine("-------------------------------------------");
             Console.ResetColor();
         }
-        private void PrintEvent(Event ev) 
+        private void Print(Event ev) 
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine(ev.Title);
@@ -99,40 +129,6 @@ namespace HillerødSejlklub.Library
             Console.WriteLine("-------------------------------------------");
             Console.ResetColor();
         }
-        // Denne metode tilføjer en bruger til et event
-        public void AddUserToEvent(string eventTitle,int userId, UserRepository userRepository)
-        {
-            Event ev = GetByTitle(eventTitle); // 
-
-            if (ev == null) // Tjekker om eventet findes 
-            {
-                Console.WriteLine($"{eventTitle} findes ikke");
-                return;
-            }
-                
-            User user = userRepository.GetById(userId); 
-            if (user == null) //Tjekker om brugeren findes
-            {
-                Console.WriteLine($"Bruger med ID {userId} findes ikke");
-                return;
-            }
-
-            if(ev.ParticipantList.Count >= ev.MaxParticipants) // Tjekker om der er plads til flere i eventet
-            {
-                Console.WriteLine($"{ev.Title} er fuldt booket");
-                Console.WriteLine($"Der er {ev.ParticipantList.Count} medlemmere tilmedt til eventet ud af {ev.MaxParticipants}");
-            }
-            else
-
-            {
-                ev.ParticipantList.Add(user); // Tilføjer en user til Participantlist
-                Console.WriteLine($"{user.Name} er nu tilføjet");
-                Console.WriteLine($"Der er {ev.ParticipantList.Count} medlemmere tilmedt til eventet ud af {ev.MaxParticipants}");
-            }
-           
-        } 
-
-
         public int EventCount()
         {
             return _events.Count;
