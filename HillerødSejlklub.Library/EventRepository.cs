@@ -9,8 +9,7 @@ namespace HillerødSejlklub.Library
         // Intern samling af events
         private static List<Event> _events = new List<Event>()
     {
-        { new Event("navnPåEvent","description1", new DateTime(2025, 00, 00, 00, 00, 00), new DateTime(2025, 08, 00, 00, 00, 00), "Hillerødsejlklub", 40)},
-
+        { new Event("Rave party","Vi smadrer loftet", new DateTime(2026,1 , 13, 10,00,00), new DateTime(2026, 01, 13, 12, 00, 00), "Hillerødsejlklub", 40)},
     };
 
 

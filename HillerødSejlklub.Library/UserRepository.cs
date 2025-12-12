@@ -11,11 +11,9 @@ namespace HillerødSejlklub.Library
     {
         private static Dictionary<string, User> _userData = new Dictionary<string, User>() // SortedDictionary til at gemme brugere med navn som nøgle og sortere dem alfabetisk
     {
-        { "navn", new User("navn","enellerandenvej, Rungsted","22334455", "enellerandenmail@mail.dk",true)},
-        { "navn", new User("navn","enellerandenvej, Rungsted","22334455", "enellerandenmail@mail.dk",false)},
-        { "navn", new User("navn","enellerandenvej, Rungsted","22334455", "enellerandenmail@mail.dk",false)},
-
-
+        { "Bob", new User("Bob","enellerandenvej 2, Rungsted","12345678", "Bob@mail.dk",true)},
+        { "Dmitris", new User("Dmitris","enellerandenvej 3, Rungsted","23456789", "Dmitris@mail.dk",false)},
+        { "Victor The Goat", new User("Victor The Goat","enellerandenvej 8, Rungsted","34567890", "VictorTheGoat@mail.dk",false)},
     };
         // Metode til at hente og udskrive alle medlemmer
         public List<User> GetAll()
@@ -33,9 +31,7 @@ namespace HillerødSejlklub.Library
             } catch(ArgumentException ex)
             {
                 Console.WriteLine(ex.Message);
-
             }
-           
         }
 
         //Denne metode henter en bruger baseret på navn
