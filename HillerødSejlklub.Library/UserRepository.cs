@@ -18,20 +18,19 @@ namespace HillerødSejlklub.Library
         }
 
         //Denne metode tilføjer en bruger til dictionary
-        public User Add(User user)
+        public void Add(User user)
         {
             try
             {
                 _userData.Add(user.Name, user);
-                return user;
+
             } catch(ArgumentException ex)
             {
                 Console.WriteLine(ex.Message);
-                return null;
+
             }
            
         }
-
 
         //Denne metode henter en bruger baseret på navn
         public User GetByName(string userName)
@@ -47,22 +46,22 @@ namespace HillerødSejlklub.Library
         }
 
         // Denne metode fjerner en bruger baseret på navn
-        public User RemoveByName(string UserName)
+        public void RemoveByName(string userName)
         {
              // Tjekker om brugeren findes
             {
                 try {
-                    User UserRemove = GetByName(UserName);
-                    _userData.Remove(UserRemove.Name); // Fjerner brugeren fra Dictionary
+                    User userRemove = GetByName(userName);
+                    _userData.Remove(userRemove.Name); // Fjerner brugeren fra Dictionary
                     Console.WriteLine("Medlem Fjernet:");
-                    return UserRemove;
+
                 } catch (ArgumentNullException ex)
                 {
                     Console.WriteLine(ex.Message);
                 }
                 
             }
-            return null;
+
         }
 
         // Denne metode henter en bruger baseret på ID
