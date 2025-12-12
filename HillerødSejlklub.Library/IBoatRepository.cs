@@ -6,9 +6,10 @@ namespace HillerødSejlklub.Library
 {
     public interface IBoatRepository
     {
-        void Add(Boat boat);
-        Boat GetById(int id);
         List<Boat> GetAll();
+        Boat GetById(int id);
+        void Add(Boat boat);
         void Remove(int id);
+        void Printall();
     }
 }

@@ -19,7 +19,6 @@ namespace HillerødSejlklub.Library
         }
         // Auto-Properties for Boat class
         public int Id { get; set; }
-        public string BoatType { get; set; }
         public string BoatName { get; set; }
         public int SailNumber { get; set; }
         public string BoatDimensions { get; set; }

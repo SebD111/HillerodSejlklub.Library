@@ -47,24 +47,24 @@ BookingRepository bookingRepo = new BookingRepository();
 Booking booking = new Booking(Boat1, new DateTime(2025, 12, 23, 10, 0, 0), new DateTime(2025, 12, 23, 16, 0, 0), user, 1, "The sea");
 bookingRepo.Add(booking);
 Console.WriteLine("Første booking oprettet:");
-booking.PrintAll();
+bookingRepo.PrintAll();
 
 Console.WriteLine();
 Booking booking1 = new Booking(Boat1, new DateTime(2025, 12, 23, 6, 0, 0), new DateTime(2025, 12, 23, 11, 0, 0), user, 1, "The sea");
 bookingRepo.Add(booking1);
 Console.WriteLine("Anden booking oprettet:");
-booking.PrintAll();
+bookingRepo.PrintAll();
 
 Booking booking2 = new Booking(Boat3, new DateTime(2025, 12, 11, 10, 0, 0), new DateTime(2025, 12, 11, 18, 0, 0), user2, 1, "The sea");
 bookingRepo.Add(booking2);
 Console.WriteLine("Tredje booking oprettet:");
-booking.PrintAll();
+bookingRepo.PrintAll();
 Console.WriteLine("--------------------------------");
-booking.ShowAllBoatInTheWater();
+bookingRepo.ShowAllBoatInTheWater();
 Console.WriteLine("--------------------------------");
 bookingRepo.SafeReturn(1);
 Console.WriteLine("Efter første booking er returneret:");
-booking.PrintAll();
+bookingRepo.PrintAll();
 Console.WriteLine("--------------------------------");
 
 // Udskrivning af både med/uden motor 

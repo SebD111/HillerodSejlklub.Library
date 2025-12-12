@@ -6,12 +6,12 @@ namespace HillerødSejlklub.Library
 {
     public class User
     {
-        private static int _id = 0;
+        private static int _idCounter = 0;
         // Constructor der initialiserer en bruger og tilføjer den til UserRepository
         public User(string name, string adress, string phone, string email, bool admin)
         {
-            _id++;
-            Id = _id;
+            _idCounter++;
+            Id = _idCounter;
             Name = name;
             Adress = adress; 
             Phone = phone;
