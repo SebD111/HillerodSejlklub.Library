@@ -82,31 +82,12 @@ Boat boat = boatRepo.GetById(3);
 Console.WriteLine(boat.ToString(boat));
 
 // Oprettelse af events med repository
-var start1 = new DateTime(2025, 06, 02, 13, 00, 00);
-var end1 = new DateTime(2025, 06, 02, 15, 00, 00);
 
-var ev1 = new Event 
-{
-    Title = "Sommerfrokost",
-    StartDate = start1,
-    EndDate = end1,
-    Description = "Spisning med klubben",
-    MaxParticipants = 50,
-    Location = "Hillerød Sejlklub"
-};
 
-var start2 = new DateTime(2025, 08, 15, 13, 00, 00);
-var end2 = new DateTime(2025, 08, 15, 15, 00, 00);
+Event ev1 = new Event("Sommerfrokost", "Spisning med klubben", new DateTime(2025, 06, 02, 13, 00, 00), new DateTime(2025, 06, 02, 15, 00, 00), "Hillerød Sejlklub", 50);
 
-var ev2 = new Event
-{
-    Title = "Årlige Kapløb",
-    StartDate = start2,
-    EndDate = end2,
-    Description = "Hurtigeste skipper vinder",
-    MaxParticipants = 100,
-    Location = "Hillerød Sejlklub"
-};
+
+Event ev2 = new Event("Årlige Kapløb","Hurtigste skipper vinder", new DateTime(2025, 08, 15, 13, 00, 00), new DateTime(2025, 08, 15, 15, 00, 00), "Hillerød Sejlklub", 100);
 
 // Brug IEventRepository/EventRepository til at håndtere events
 IEventRepository eventRepo = new EventRepository();
@@ -124,4 +105,8 @@ Event eventTestGetByeTitle = eventRepo.GetByTitle("Årlige Kapløb");
 
 //Console.WriteLine(eventTestGetByeTitle.Title);
 
-eventRepo.AddUserToEvent("Årlige Kapløb", 100, userRepository);
+eventRepo.AddUserToEvent("Årlige Kapløb", 1, userRepository);
+eventRepo.AddUserToEvent("Årlige Kapløb", 2, userRepository);
+eventRepo.AddUserToEvent("Årlige Kapløb", 3, userRepository);
+eventRepo.AddUserToEvent("Årlige Kapløb", 4, userRepository);
+eventRepo.AddUserToEvent("Årlige Kapløb", 5, userRepository);

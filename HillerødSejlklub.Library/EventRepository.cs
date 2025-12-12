@@ -7,7 +7,7 @@ namespace HillerødSejlklub.Library
     public class EventRepository : IEventRepository
     {
         // Intern samling af events
-        private static readonly List<Event> _events = new List<Event>();
+        private static List<Event> _events = new List<Event>();
 
         // Udskriver alle events 
         public void PrintAll()
@@ -84,8 +84,8 @@ namespace HillerødSejlklub.Library
             Console.WriteLine(ev.Title);
             Console.ResetColor();
 
-            Console.WriteLine($"  Start: {ev.StartDate.ToString(Event.DateTimeFormat)}");
-            Console.WriteLine($"  Slut:  {ev.EndDate.ToString(Event.DateTimeFormat)}");
+            Console.WriteLine($"  Start: {ev.StartDate}");
+            Console.WriteLine($"  Slut:  {ev.EndDate}");
             Console.WriteLine($"  Sted:  {ev.Location}");
             Console.WriteLine($"  Deltagere (max): {ev.MaxParticipants}");
             Console.WriteLine($"  Beskrivelse: {ev.Description}");
@@ -115,20 +115,20 @@ namespace HillerødSejlklub.Library
             if(ev.ParticipantList.Count >= ev.MaxParticipants) // Tjekker om der er plads til flere i eventet
             {
                 Console.WriteLine($"{ev.Title} er fuldt booket");
-                Console.WriteLine($"Der er {Count()} medlemmere tilmedt til eventet ud af {ev.MaxParticipants}");
+                Console.WriteLine($"Der er {ev.ParticipantList.Count} medlemmere tilmedt til eventet ud af {ev.MaxParticipants}");
             }
             else
 
             {
                 ev.ParticipantList.Add(user); // Tilføjer en user til Participantlist
                 Console.WriteLine($"{user.Name} er nu tilføjet");
-                Console.WriteLine($"Der er {Count()} medlemmere tilmedt til eventet ud af {ev.MaxParticipants}");
+                Console.WriteLine($"Der er {ev.ParticipantList.Count} medlemmere tilmedt til eventet ud af {ev.MaxParticipants}");
             }
            
         } 
 
 
-        public int Count()
+        public int EventCount()
         {
             return _events.Count;
         }
