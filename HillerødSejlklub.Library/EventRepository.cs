@@ -7,7 +7,12 @@ namespace HillerødSejlklub.Library
     public class EventRepository : IEventRepository
     {
         // Intern samling af events
-        private static List<Event> _events = new List<Event>();
+        private static List<Event> _events = new List<Event>()
+    {
+        { new Event("navnPåEvent","description1", new DateTime(2025, 00, 00, 00, 00, 00), new DateTime(2025, 08, 00, 00, 00, 00), "Hillerødsejlklub", 40)},
+
+    };
+
 
         // Udskriver alle events 
         public void PrintAll()

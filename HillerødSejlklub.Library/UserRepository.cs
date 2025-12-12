@@ -7,10 +7,16 @@ using System.Xml.Linq;
 
 namespace HillerødSejlklub.Library
 {
-    public class UserRepository: IUserRepository
+    public class UserRepository : IUserRepository
     {
-        private static Dictionary<string, User> _userData = new Dictionary<string, User>(); // SortedDictionary til at gemme brugere med navn som nøgle og sortere dem alfabetisk
+        private static Dictionary<string, User> _userData = new Dictionary<string, User>() // SortedDictionary til at gemme brugere med navn som nøgle og sortere dem alfabetisk
+    {
+        { "navn", new User("navn","enellerandenvej, Rungsted","22334455", "enellerandenmail@mail.dk",true)},
+        { "navn", new User("navn","enellerandenvej, Rungsted","22334455", "enellerandenmail@mail.dk",false)},
+        { "navn", new User("navn","enellerandenvej, Rungsted","22334455", "enellerandenmail@mail.dk",false)},
 
+
+    };
         // Metode til at hente og udskrive alle medlemmer
         public List<User> GetAll()
         {
