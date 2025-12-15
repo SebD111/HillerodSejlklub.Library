@@ -6,8 +6,10 @@ namespace HillerødSejlklub.Library
 {
     public class User
     {
+        // instance field
         private static int _idCounter = 0;
-        // Constructor der initialiserer en bruger med de nødvendige oplysninger
+
+        // Constructor 
         public User(string name, string adress, string phone, string email, bool admin)
         {
             _idCounter++;
@@ -19,17 +21,14 @@ namespace HillerødSejlklub.Library
             Admin = admin;
             Time = DateTime.Now;
         }
+
         // Properies
-        public int Id {get;set;}
+        public int Id {get;set;} 
         public string Name { get; set; }
-
         public string Adress { get; set; }
-
         public string Phone { get; set; }
-
         public string Email { get; set; }
         public bool Admin { get; set; }
-
         public DateTime Time { get; set; }
     }
 }

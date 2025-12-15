@@ -4,10 +4,9 @@ using System.Text;
 
 namespace HillerødSejlklub.Library
 {
-    // Motor Klasse
     public class Motor
     {
-        // Konstruktør
+        // Constructor
         public Motor(string manufacturer, int horsepower, string fuelType, int year)
         {
             Manufacturer = manufacturer;
@@ -16,13 +15,13 @@ namespace HillerødSejlklub.Library
             Year = year;
         }
 
-        // Auto-properties
+        // Properties
         public string Manufacturer { get; set; }
         public int Horsepower { get; set; }
-        public string FuelType { get; set; } // Benzin, Diesel, El
+        public string FuelType { get; set; } 
         public int Year { get; set; }
 
-        // Override ToString metode for nem udskrift
+        // Override ToString metode og return motor info
         public override string ToString()
         {
             return

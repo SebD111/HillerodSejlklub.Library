@@ -6,17 +6,18 @@ namespace HillerødSejlklub.Library
 {
     public class EventRepository : IEventRepository
     {
-        // Intern samling af events
+        // instance field
         private static List<Event> _events = new List<Event>()
     {
         { new Event("Rave party","Vi smadrer loftet", new DateTime(2026,1 , 13, 10,00,00), new DateTime(2026, 01, 13, 12, 00, 00), "Hillerødsejlklub", 0)},
     };
 
+        // Metoder
 
         // Tilføjer event til samlingen
         public Event Add(Event ev)
         {
-            if (ev == null)
+            if (ev == null) // Tjekker om event er null
             {
                 return null;
             }
@@ -27,19 +28,19 @@ namespace HillerødSejlklub.Library
             }
         }
 
-        // Finder event baseret på præcis titel
+        // Henter event baseret på titelen
         public Event GetByTitle(string title)
         { 
-            if (string.IsNullOrWhiteSpace(title))
+            if (title == null) // Tjekker om title er null
             {
                 return null;
             }
 
-            for (int i = 0; i <_events.Count; i++)
+            for (int i = 0; i <_events.Count; i++) // Gennemgår alle events i samlingen
             {
-                Event thisEvent = _events[i];
-                
-                if (thisEvent.Title == title)
+                Event thisEvent = _events[i]; // Henter det aktuelle event
+
+                if (thisEvent.Title == title) // Tjekker om titelen matcher
                 {
                     return thisEvent;
                 }
@@ -47,11 +48,11 @@ namespace HillerødSejlklub.Library
             return null;
         }
 
-        // Fjerner event baseret på præcis titel
+        // Fjerner event baseret på titelen
         public Event RemoveByTitle(string title)
         {
-            Event ev = GetByTitle(title);
-            if (ev != null)
+            Event ev = GetByTitle(title); // Henter eventet ved hjælp af GetByTitle metoden
+            if (ev != null) // Tjekker om eventet findes
             {
                 _events.Remove(ev);
                 Console.WriteLine($"Event Fjernet:{title}");
@@ -62,9 +63,10 @@ namespace HillerødSejlklub.Library
                 return null;
             }
         }
+        // Tilføjer en bruger til et event baseret på event titel og bruger id
         public void AddUserToEvent(string eventTitle, int userId, UserRepository userRepository)
         {
-            Event ev = GetByTitle(eventTitle); // 
+            Event ev = GetByTitle(eventTitle); // Henter eventet ved hjælp af GetByTitle metoden
 
             if (ev == null) // Tjekker om eventet findes 
             {
@@ -72,7 +74,7 @@ namespace HillerødSejlklub.Library
                 return;
             }
 
-            User user = userRepository.GetById(userId);
+            User user = userRepository.GetById(userId); // Henter brugeren ved hjælp af UserRepository
             if (user == null) //Tjekker om brugeren findes
             {
                 Console.WriteLine($"Bruger med ID {userId} findes ikke");
@@ -87,7 +89,7 @@ namespace HillerødSejlklub.Library
             else
 
             {
-                ev.ParticipantList.Add(user); // Tilføjer en user til Participantlist
+                ev.ParticipantList.Add(user); 
                 Console.WriteLine($"{user.Name} er nu tilføjet");
                 Console.WriteLine($"Der er {ev.ParticipantList.Count} medlemmere tilmedt til eventet ud af {ev.MaxParticipants}");
             }
@@ -104,6 +106,8 @@ namespace HillerødSejlklub.Library
                 Print(ev);
             }
         }
+
+        // OverLay til event
         private void OverLay() 
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -113,6 +117,8 @@ namespace HillerødSejlklub.Library
             Console.WriteLine("-------------------------------------------");
             Console.ResetColor();
         }
+
+        // Udskriver et event
         private void Print(Event ev) 
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
@@ -129,10 +135,14 @@ namespace HillerødSejlklub.Library
             Console.WriteLine("-------------------------------------------");
             Console.ResetColor();
         }
+
+        // Udskriver antallet af events
         public int EventCount()
         {
             return _events.Count;
         }
+
+        // Får alle bookings i listen (Bruges til razor page)
         public List<Event> GetAll()
         {
             return _events;

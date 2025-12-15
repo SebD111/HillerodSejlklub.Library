@@ -6,14 +6,19 @@ namespace HillerødSejlklub.Library
 {
     public class DinghyBoat: Boat
     {
+        // Constructor
         public DinghyBoat (int id, string boatName, int sailNumber, string boatDimensions, int yearOfConstruction, int numberOfOars): base(id, boatName, sailNumber, boatDimensions, yearOfConstruction)
         {
             NumberOfOars = numberOfOars;
 
         }
 
+        // Properties
         public int NumberOfOars { get; set; }
 
+        // Metode
+
+        // Override ToString metode fra Boat class
         public override string ToString(Boat boat)
         {
             return

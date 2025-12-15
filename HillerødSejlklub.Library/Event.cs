@@ -6,8 +6,10 @@ namespace HillerødSejlklub.Library
 {
     public class Event
     {
+        // instance field
         private List<User> _participants = new List<User>();
-        
+
+        // Constructor
         public Event(string title, string description, DateTime startDate, DateTime endDate, string location, int maxParticipants)
         {
             Title = title;
@@ -18,7 +20,8 @@ namespace HillerødSejlklub.Library
             MaxParticipants = maxParticipants;
             ParticipantList = _participants;
         }
-        // Auto-Properties
+
+        // Properties
         public string Title { get; set; }
         public string Description { get; set; }
         public DateTime StartDate { get; set; }
