@@ -9,7 +9,7 @@ namespace HillerødSejlklub.Library
         // Intern samling af events
         private static List<Event> _events = new List<Event>()
     {
-        { new Event("Rave party","Vi smadrer loftet", new DateTime(2026,1 , 13, 10,00,00), new DateTime(2026, 01, 13, 12, 00, 00), "Hillerødsejlklub", 40)},
+        { new Event("Rave party","Vi smadrer loftet", new DateTime(2026,1 , 13, 10,00,00), new DateTime(2026, 01, 13, 12, 00, 00), "Hillerødsejlklub", 0)},
     };
 
 
@@ -54,7 +54,7 @@ namespace HillerødSejlklub.Library
             if (ev != null)
             {
                 _events.Remove(ev);
-                Console.WriteLine("Event Fjernet:");
+                Console.WriteLine($"Event Fjernet:{title}");
                 return ev;
             }
             else
@@ -82,7 +82,7 @@ namespace HillerødSejlklub.Library
             if (ev.ParticipantList.Count >= ev.MaxParticipants) // Tjekker om der er plads til flere i eventet
             {
                 Console.WriteLine($"{ev.Title} er fuldt booket");
-                Console.WriteLine($"Der er {ev.ParticipantList.Count} medlemmere tilmedt til eventet ud af {ev.MaxParticipants}");
+                
             }
             else
 

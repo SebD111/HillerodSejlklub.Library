@@ -55,7 +55,7 @@ namespace HillerødSejlklub.Library
                 try {
                     User userRemove = GetByName(userName);
                     _userData.Remove(userRemove.Name); // Fjerner brugeren fra Dictionary
-                    Console.WriteLine("Medlem Fjernet:");
+                    Console.WriteLine($"Medlem Fjernet: {userName}");
 
                 } catch (ArgumentNullException ex)
                 {
