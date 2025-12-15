@@ -11,9 +11,9 @@ namespace HillerødSejlklub.Library
 
         private static Dictionary<string, Boat> _boatData = new Dictionary<string, Boat>
     {
-        { "KutterKnud", new MotorBoat(1,"KutterKnud", 67,new Motor("Suzuki", 80, "Diesel", 2010),"8M X 4M",2005) },
-        { "JollenYolo", new DinghyBoat(2,"JollenYolo", 21,"3M X 1M",2020,2)},
-        { "Zephyr", new SailBoat(3,"Zephyr",69,"5M x 2M",2022,"20 m²")}
+        { "KutterKnud", new MotorBoat(1,"KutterKnud", 3,new Motor("Suzuki", 80, "Diesel", 2010),"8M X 4M",2005) },
+        { "JollenYolo", new DinghyBoat(2,"JollenYolo", 12,"3M X 1M",2020,2)},
+        { "Zephyr", new SailBoat(3,"Zephyr",6,"5M x 2M",2022,"20 m²")}
     };
         //Denne metode henter alle både i båd dictionary
         public List<Boat> GetAll()

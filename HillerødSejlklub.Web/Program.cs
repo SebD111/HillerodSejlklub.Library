@@ -1,7 +1,12 @@
+using HillerødSejlklub.Library;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+builder.Services.AddSingleton<IBoatRepository, BoatRepository>();
+builder.Services.AddSingleton<IEventRepository, EventRepository>();
+builder.Services.AddSingleton<IUserRepository, UserRepository>();
 
 var app = builder.Build();
 

@@ -19,5 +19,6 @@ namespace HillerødSejlklub.Library
 
         // Tilføjer en bruger til et event baseret på eventets titel og brugerens id
         void AddUserToEvent(string eventTitle, int id, UserRepository userRepository);
+        List<Event> GetAll();
     }
 }

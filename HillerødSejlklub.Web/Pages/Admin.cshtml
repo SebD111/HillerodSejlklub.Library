@@ -1,0 +1,45 @@
+﻿@page
+@model HillerødSejlklub.Web.Pages.AdminModel
+@{
+}
+
+@{
+    ViewData["Title"] = "Admin Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Administrator</h1>
+    <p>Se oversigt over både eller medlemmer</p>
+</div>
+
+<br />
+
+<div class="row">
+
+    <div class="col-md-6">
+        <div class="card text-center mb-4 border-primary">
+            <div class="card-header bg-primary text-white">
+                Både
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Administrer Både</h5>
+                <p class="card-text">Se alle både i systemet.</p>
+                <a asp-page="/AdminBoats" class="btn btn-primary">Vis Både</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card text-center mb-4 border-success">
+            <div class="card-header bg-success text-white">
+                Medlemmer
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Administrer Medlemmer</h5>
+                <p class="card-text">Se alle medlemmer systemet.</p>
+                <a asp-page="/AdminUsers" class="btn btn-success">Vis Medlemmer</a>
+            </div>
+        </div>
+    </div>
+
+</div>

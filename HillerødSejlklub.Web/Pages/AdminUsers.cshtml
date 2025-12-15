@@ -1,0 +1,64 @@
+﻿@page
+@using HillerødSejlklub.Library
+@model AdminUsersModel
+@{
+    ViewData["Title"] = "AdminUser page";
+}
+
+<div>
+    <div>
+        <div class="row text-center">
+
+            <div class="col">
+                <a class="btn btn-primary" asp-page="/UserCreate">Opret et nyt medlem</a>
+            </div>
+
+            <div class="col">
+                <form method="post">
+                    <input type="text" name="input" />
+                    <button type="submit" asp-page-handler="FindUser">Søg</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    @if (Model.Userlist.Count == 0)
+    {
+        <h1 style="color: lightgrey">Ingen brugere fundet</h1>
+    }
+    else
+    {
+
+        @foreach (User user in Model.Userlist)
+        {
+            <div class="col-md-4 mb-4">
+
+                <div class=" bg-dark text-light card h-100">
+
+                    <img src="Images/PlaceholderUser.png" class="card-img-fixed-height" alt="...">
+
+                    <div class="card-body">
+                        <h5 class="card-title">@user.Name</h5>
+                        <p>ID: @user.Id</p>
+                        <p> Adresse: @user.Adress</p>
+                        <p> Telefon: @user.Phone</p>
+                        <p> Email: @user.Email</p>
+                        <a class="btn btn-danger"
+                           asp-page="/UserDelete"
+                           asp-page-handler="RemoveUser"
+                           asp-route-userName="@user.Name">
+                            Slet medlem
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        }
+    }
+
+
+
+</div>

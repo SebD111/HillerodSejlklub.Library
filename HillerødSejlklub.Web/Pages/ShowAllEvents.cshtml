@@ -1,0 +1,39 @@
+﻿@page
+@using HillerødSejlklub.Library
+@model ShowAllEventsModel
+@{
+}
+
+<div class="row">
+    @if (Model.Eventlist.Count == 0)
+    {
+        <h1 style="color: lightgrey">Ingen events fundet</h1>
+    }
+    else
+    {
+
+        @foreach (Event ev in Model.Eventlist)
+        {
+            <div class="col-md-4 mb-4">
+
+                <div class=" bg-dark text-light card h-100">
+
+                    <img src="Images/eventRave.png" class="card-img-fixed-height" alt="...">
+
+                    <div class="card-body">
+                        <h5 class="card-title">@ev.Title</h5>
+                        <p>Beskrivelse: @ev.Description</p>
+                        <p>Start: @ev.StartDate</p>
+                        <p>Slut: @ev.EndDate</p>
+                        <p>Sted: @ev.Location</p>
+                        <p>Max Deltagere: @ev.MaxParticipants</p>
+
+                    </div>
+                </div>
+            </div>
+        }
+    }
+
+
+
+</div>

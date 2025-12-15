@@ -1,0 +1,70 @@
+﻿@page
+@using HillerødSejlklub.Library
+@model ShowAllBoatsModel
+@{
+}
+
+<div class="col">
+    <a class="btn btn-primary" asp-page="/BookBoat">Book en båd</a>
+</div>
+
+<div class="row">
+
+    @if (Model.Boatlist.Count == 0)
+    {
+        <h1 style="color: lightgrey">Ingen båd fundet</h1>
+    }
+    else
+    {
+
+        @foreach (Boat boat in Model.Boatlist)
+        {
+            <div class="col-md-4 mb-4">
+
+                <div class=" bg-dark text-light card h-100">
+
+                    <img src="Images/@(boat.SailNumber).jpg"
+                         class="card-img-fixed-height"
+                         alt="@boat.BoatName"
+                         onerror="this.src='Images/HillerødPlaceholderBoat.jpg'">
+
+                    <div class="card-body">
+                        <h5 class="card-title">@boat.BoatName</h5>
+                        <p>ID: @boat.Id</p>
+                        <p> Sejlnummer: @boat.SailNumber</p>
+                        <p> Årgang: @boat.YearOfConstruction</p>
+                        <p> Dimensioner: @boat.BoatDimensions</p>
+
+
+                        @if (boat is HillerødSejlklub.Library.MotorBoat)
+                        {
+                            MotorBoat mBoat = (HillerødSejlklub.Library.MotorBoat)boat;
+                            <p>Type båd: motorbåd</p>
+                            <p>Motor information:</p>
+                            <p>Mærke: @mBoat.Motor.Manufacturer</p>
+                            <p>Brændstof: @mBoat.Motor.FuelType</p>
+                            <p>HK: @mBoat.Motor.Horsepower</p>
+                            <p>Årgang: @mBoat.Motor.Year</p>
+                        }
+                        else if (boat is HillerødSejlklub.Library.DinghyBoat)
+                        {
+                            <p>Type båd: Jolle</p>
+                            DinghyBoat dBoat = (HillerødSejlklub.Library.DinghyBoat)boat;
+                            <p>Antal årer: @dBoat.NumberOfOars</p>
+                        }
+                        else if (boat is HillerødSejlklub.Library.SailBoat)
+                        {
+                            <p>Type båd: sejlbåd</p>
+                            SailBoat sBoat = (HillerødSejlklub.Library.SailBoat)boat;
+                            <p>Sejl størrelse: @sBoat.SailVolume</p>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        }
+    }
+
+
+
+</div>  
