@@ -3,6 +3,7 @@
 // Oprettelse af motor(er)
 Motor motor1 = new Motor("Yamaha", 150, "Benzin", 2018);
 Motor motor2 = new Motor("Suzuki", 10, "Benzin", 2020);
+
 // Oprettelse af både
 Boat Boat1 = new MotorBoat(4, "Usain Boat", 25, motor1, "5M X 3M", 2018);
 Boat Boat2 = new SailBoat(5, "Kystens Knald", 33, "7M X 3M", 2023, "35 m²");
@@ -19,6 +20,7 @@ User user2 = new User("Ronnie RøvGuitar", "Hestevænget 55, Fredensborg", "88 4
 User user3 = new User("Søren SyvSover", "FjongVej 76, Hillerød", "87 36 95 12", "SorenSS76@gmail.com", true);
 User user4 = new User("Lars Lokum", "HokusPokusvej 10, Vedbæk", "67 88 20 10", "Lars10@gmail.com", true);
 User user5 = new User("Jørgen Jordbærtærte", "Nørregade 27, København", "41 10 80 44", "BagerJorgen@gmail.com", true);
+
 // Udskrivning af alle brugere
 userRepository.Add(user);
 userRepository.Add(user2);
