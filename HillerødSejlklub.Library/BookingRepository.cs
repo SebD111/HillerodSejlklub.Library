@@ -99,6 +99,10 @@ namespace HillerødSejlklub.Library
             Console.WriteLine("-------------------------------------------");
             Console.ResetColor();
         }
+        public List<Booking> GetAll()
+        {
+            return _bookings;
+        }
 
     }
 }

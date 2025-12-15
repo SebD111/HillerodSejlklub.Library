@@ -93,6 +93,7 @@ namespace HillerødSejlklub.Library
             }
 
         }
+
         // Udskriver alle events i samlingen
         public void PrintAll()
         {
@@ -131,6 +132,10 @@ namespace HillerødSejlklub.Library
         public int EventCount()
         {
             return _events.Count;
+        }
+        public List<Event> GetAll()
+        {
+            return _events;
         }
     }
 }
