@@ -21,7 +21,7 @@ namespace HillerødSejlklub.Library
             return _userData.Values.ToList();
         }
 
-        //Denne metode tilføjer en bruger til dictionary
+        // Denne metode tilføjer en bruger til dictionary
         public void Add(User user)
         {
             try
@@ -34,7 +34,7 @@ namespace HillerødSejlklub.Library
             }
         }
 
-        //Denne metode henter en bruger baseret på navn
+        // Denne metode henter en bruger baseret på navn
         public User GetByName(string userName)
         {
             try

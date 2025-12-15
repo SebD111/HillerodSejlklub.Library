@@ -18,7 +18,7 @@ namespace HillerødSejlklub.Library
             }
             else
             {
-                Console.WriteLine("Denne båd er ikke tilgængelig i dette tidsrum");
+                Console.WriteLine("Båden er optaget i det angivne tidsrum");
             }
         }
         public void SafeReturn(int id)
@@ -28,11 +28,11 @@ namespace HillerødSejlklub.Library
                 if (booking.Id == id) // Finder bookingen med det givne ID
                 {
                     _bookings.Remove(booking); // Fjerner bookingen fra listen
-                    Console.WriteLine("Velkommen tilbage fra din tur");
+                    Console.WriteLine("Velkommen hjem fra din tur");
                     return;
                 }
             }
-            Console.WriteLine("Din booking kunne ikke findes");
+            Console.WriteLine("Bookingen blev ikke fundet");
         }
         public void ShowAllBoatInTheWater()
         {
