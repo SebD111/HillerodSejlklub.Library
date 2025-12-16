@@ -9,13 +9,15 @@ namespace HillerødSejlklub.Library
 {
     public class UserRepository : IUserRepository
     {
+        // Instance field
         private static Dictionary<string, User> _userData = new Dictionary<string, User>() // SortedDictionary til at gemme brugere med navn som nøgle og sortere dem alfabetisk
-    {
-        { "Bob", new User("Bob","enellerandenvej 2, Rungsted","12345678", "Bob@mail.dk",true)},
-        { "Dmitris", new User("Dmitris","enellerandenvej 3, Rungsted","23456789", "Dmitris@mail.dk",false)},
-        { "Victor The Goat", new User("Victor The Goat","enellerandenvej 8, Rungsted","34567890", "VictorTheGoat@mail.dk",false)},
-    };
-        // Metode til at hente og udskrive alle medlemmer
+        {
+            { "Bob", new User("Bob","enellerandenvej 2, Rungsted","12345678", "Bob@mail.dk",true)},
+            { "Dmitris", new User("Dmitris","enellerandenvej 3, Rungsted","23456789", "Dmitris@mail.dk",false)},
+            { "Victor The Goat", new User("Victor The Goat","enellerandenvej 8, Rungsted","34567890", "VictorTheGoat@mail.dk",false)},
+        };
+
+        // Metode til at hente alle brugere som en liste
         public List<User> GetAll()
         {
             return _userData.Values.ToList();
@@ -24,11 +26,11 @@ namespace HillerødSejlklub.Library
         // Denne metode tilføjer en bruger til dictionary
         public void Add(User user)
         {
-            try
+            try 
             {
                 _userData.Add(user.Name, user);
 
-            } catch(ArgumentException ex)
+            } catch(ArgumentException ex) // Håndterer tilfælde hvor brugeren allerede findes
             {
                 Console.WriteLine(ex.Message);
             }
@@ -41,7 +43,7 @@ namespace HillerødSejlklub.Library
             {
                 return _userData[userName];
             }
-            catch (KeyNotFoundException ex)
+            catch (KeyNotFoundException ex) // Håndterer tilfælde hvor brugeren ikke findes
             {
                 throw new ArgumentNullException($"Bruger med navn '{userName}' blev ikke fundet.");
             }
@@ -50,40 +52,33 @@ namespace HillerødSejlklub.Library
         // Denne metode fjerner en bruger baseret på navn
         public void RemoveByName(string userName)
         {
-             // Tjekker om brugeren findes
             {
                 try {
-                    User userRemove = GetByName(userName);
-                    _userData.Remove(userRemove.Name); // Fjerner brugeren fra Dictionary
+                    _userData.Remove(userName); 
                     Console.WriteLine($"Medlem Fjernet: {userName}");
 
-                } catch (ArgumentNullException ex)
+                } catch (ArgumentNullException ex) // Håndterer tilfælde hvor brugeren ikke findes
                 {
                     Console.WriteLine(ex.Message);
                 }
-                
             }
-
         }
 
         // Denne metode henter en bruger baseret på ID
         public User GetById(int id)
         {
-
-            foreach (User user in _userData.Values) // Gennemgår alle brugere i Dictionary
+            foreach (User user in _userData.Values) 
             {
-
-                if (user.Id == id) // Tjekker om brugerens ID er det samme som det givne ID
+                if (user.Id == id) 
                 {
                     Console.WriteLine($"Fandt bruger: {user.Name}");
                     return user;
                 }
             }
-
             return null;
         }
 
-        // Denne metode opdaterer en brugers oplysninger baseret på ID
+        // Denne metode opdaterer en brugers informationer baseret på ID
         public void Update(int id, string newAddress = null, string newPhone = null, string newEmail = null)
         {
             User userToEdit = GetById(id); // Henter brugeren baseret på ID
@@ -93,17 +88,17 @@ namespace HillerødSejlklub.Library
 
                 if (newAddress != null) // Opdaterer adressen, hvis en ny adresse bliver skrevet ind
                 {
-                    userToEdit.Adress = newAddress; // Opdaterer adressen
+                    userToEdit.Adress = newAddress; 
                 }
 
                 if (newPhone != null) // opdaterer telefonnummeret, hvis et nyt nummer bliver skrevet ind
                 {
-                    userToEdit.Phone = newPhone; // Opdaterer telefonnummeret
+                    userToEdit.Phone = newPhone; 
                 }
 
                 if (newEmail != null) // Opdaterer emailen, hvis en ny email bliver skrevet ind
                 {
-                    userToEdit.Email = newEmail; // Opdaterer emailen
+                    userToEdit.Email = newEmail; 
                 }
 
                 Console.WriteLine($"Ændring er gemt for medlem: {userToEdit.Name}\n");
@@ -113,6 +108,8 @@ namespace HillerødSejlklub.Library
                 Console.WriteLine($"Kunne ikke finde medlem med id: {id}");
             }
         }
+
+        // Denne metode udskriver alle brugere i dictionary
         public void PrintAll()
         {
             Overlay();
@@ -123,6 +120,7 @@ namespace HillerødSejlklub.Library
             }
         }
 
+        // Overlay til brugerlisten
         private void Overlay()
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -133,29 +131,30 @@ namespace HillerødSejlklub.Library
             Console.ResetColor();
         }
 
+
+        // Print metode til en enkelt bruger
         private void Print(User user)
         {
             // Navn "fremhæves" i cyan farve
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine($"{user.Name}");
             Console.ResetColor();
-
             // Strukur
             Console.WriteLine($"  ID: {user.Id}");
             Console.WriteLine($"  Adresse: {user.Adress}");
             Console.WriteLine($"  Telefon: {user.Phone}");
             Console.WriteLine($"  Email: {user.Email}");
             Console.WriteLine($"  Oprettet: {user.Time}");
-
             // Separator
             Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine("-------------------------------------------");
             Console.ResetColor();
         }
+
+        // Denne metode tæller antal brugere i dictionary
         public int Count()
         { 
             return _userData.Count;
         }
-
     }
 }

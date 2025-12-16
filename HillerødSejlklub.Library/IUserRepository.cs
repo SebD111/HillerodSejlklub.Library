@@ -6,6 +6,7 @@ namespace HillerødSejlklub.Library
 {
     public interface IUserRepository
     {
+        // Metoder
         List<User> GetAll();
         User GetByName(string userName);
         User GetById(int id);

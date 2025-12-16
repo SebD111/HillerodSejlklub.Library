@@ -6,11 +6,16 @@ namespace HillerødSejlklub.Library
 {
     public class MotorBoat: Boat
     {
-         public MotorBoat (int id, string boatName, int sailNumber, Motor motor, string boatDimensions, int yearOfConstruction): base(id, boatName, sailNumber, boatDimensions, yearOfConstruction)
+        // Constructor
+        public MotorBoat (int id, string boatName, int sailNumber, Motor motor, string boatDimensions, int yearOfConstruction): base(id, boatName, sailNumber, boatDimensions, yearOfConstruction)
         {
             Motor = motor;
         }
+        // Properties
         public Motor Motor { set; get; }
+
+        // Metode
+        // Override ToString metode fra Boat class
         public override string ToString(Boat boat)
         {
             return

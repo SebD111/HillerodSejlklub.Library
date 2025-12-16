@@ -8,7 +8,7 @@ namespace HillerødSejlklub.Library
 {
     public class BoatRepository : IBoatRepository
     {
-
+        // Dictionary 
         private static Dictionary<string, Boat> _boatData = new Dictionary<string, Boat>
     {
         { "KutterKnud", new MotorBoat(1,"KutterKnud", 3,new Motor("Suzuki", 80, "Diesel", 2010),"8M X 4M",2005) },
@@ -24,9 +24,9 @@ namespace HillerødSejlklub.Library
         // Denne metode henter en båd ud fra id
         public Boat GetById(int id)
         {
-            foreach (Boat boat in _boatData.Values) //Gennemgår alle både i båd dictionary //Overvej at søge på key
+            foreach (Boat boat in _boatData.Values) 
             {
-                if (boat.Id == id) //Tjekker om bådens id matcher det givne id
+                if (boat.Id == id)
                 {
                     return boat;
                 }
@@ -37,7 +37,7 @@ namespace HillerødSejlklub.Library
         // Denne metode tilføjer en båd til båd dictionary
         public void Add(Boat boat)
         {
-            _boatData.Add(boat.BoatName, boat); // Skal kigges på
+            _boatData.Add(boat.BoatName, boat);
         }
 
         // Denne metode fjerner en båd ud fra id
@@ -47,10 +47,12 @@ namespace HillerødSejlklub.Library
 
             if (BoatRemove != null) //Tjekker om båden findes
             {
-                _boatData.Remove(BoatRemove.BoatName); // Fjerner båden fra båd dictionary
+                _boatData.Remove(BoatRemove.BoatName); 
             }
         }
-        public void PrintAll() // Sæt ind i boat class
+
+        // Denne metode udskriver alle både i båd dictionary
+        public void PrintAll() 
         {
             OverLay();
             BoatRepository repo = new BoatRepository();
@@ -60,6 +62,8 @@ namespace HillerødSejlklub.Library
                 Console.WriteLine(boat.ToString(boat));
             }
         }
+
+        // OverLay til bådliste
         private void OverLay()
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
