@@ -1,0 +1,28 @@
+﻿@page
+@using HillerødSejlklub.Library
+@model BoatCreateModel
+@{
+}
+
+<h1>Opret Ny Båd</h1>
+
+<form method="post">
+
+    Bådens id : <input name="id" /> <br />
+    Bådens navn : <input name="boatName" /> <br />
+    Bådens sejlnummer : <input name="sailNumber" /> <br />
+    båd dimensioner : <input name="boatDimensions" /> <br />
+    pet årgang : <input name="yearOfConstruction" /> <br />
+
+    <select name="boatType">
+        <option value="Sailboat">Sejlbåd</option>
+        <option value="Motorboat">Motorbåd</option>
+        <option value="DinghyBoat">Jolle</option>
+    </select>
+
+    <input type="submit" value="tilføj" /> <br />
+
+
+
+</form>
+

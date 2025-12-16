@@ -1,0 +1,103 @@
+﻿@page
+@using HillerødSejlklub.Library
+@model BecomeMemberModel
+@{
+}
+
+<div class="container mt-5">
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold text-white">Tilmeld dig</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-md-7 mb-4">
+            <div class="card bg-dark text-white border-secondary shadow p-3">
+                <div class="card-body">
+                    <h3 class="card-title mb-4">Dine oplysninger</h3>
+
+                    <form method="post">
+                        <div class="mb-3">
+                            <label class="form-label">Navn og efternavn <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control bg-secondary text-white border-0" placeholder=required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Adresse <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control bg-secondary text-white border-0" placeholder=required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Fødselsdag <span class="text-danger">*</span></label>
+                            <input type="date" class="form-control bg-secondary text-white border-0" required />
+                            <small class="text-muted"></small>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Medlemskab <span class="text-danger">*</span></label>
+                            <select class="form-select bg-secondary text-white border-0">
+                                <option selected>Vælg medlemskab</option>
+                                <option value="junior">Junior</option>
+                                <option value="senior">Senior</option>
+                                <option value="familie">Familie</option>
+                                <option value="passiv">Passiv</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Email <span class="text-danger">*</span></label>
+                            <input type="email" class="form-control bg-secondary text-white border-0" placeholder=required />
+                        </div>
+
+                        <div class="d-grid gap-2 mt-4">
+                            <button type="submit" class="btn btn-primary btn-lg">Accepter (Send)</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <div class="card bg-dark text-white border-secondary shadow">
+                <div class="card-header bg-secondary text-center">
+                    <h4 class="mb-0">Hvad koster det?</h4>
+                    <small class="text-white">(Priser pr. 1. januar 2023)</small>
+                </div>
+                <div class="card-body p-0">
+                    <table class="table table-dark table-striped table-hover mb-0">
+                        <tbody>
+                            <tr>
+                                <td>Junior <br><small class="text-white-50 fst-italic"></small></td>
+                                <td class="text-end align-middle">750,00</td>
+                            </tr>
+                            <tr>
+                                <td>Junior inkl. plads <br><small class="text-white-50 fst-italic"></small></td>
+                                <td class="text-end align-middle">950,00</td>
+                            </tr>
+                            <tr>
+                                <td>Senior <br><small class="text-white-50 fst-italic"></small></td>
+                                <td class="text-end align-middle">1100,00</td>
+                            </tr>
+                            <tr>
+                                <td>Senior inkl. plads <br><small class="text-white-50 fst-italic"></small></td>
+                                <td class="text-end align-middle">1500,00</td>
+                            </tr>
+                            <tr>
+                                <td>Familie <br><small class="text-white-50 fst-italic"></small></td>
+                                <td class="text-end align-middle">1500,00</td>
+                            </tr>
+                            <tr>
+                                <td>Bådplads <br><small class="text-white-50 fst-italic"></small></td>
+                                <td class="text-end align-middle">400,00</td>
+                            </tr>
+                            <tr>
+                                <td>Passiv medlem <br><small class="text-white-50 fst-italic"></small></td>
+                                <td class="text-end align-middle">250,00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer text-white-50 text-center small">
+                    * Vi tager ikke imod dankort, kun mobilepay.
+                </div>
+            </div>
+        </div>

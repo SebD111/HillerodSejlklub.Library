@@ -11,5 +11,7 @@ namespace HillerødSejlklub.Library
         void SafeReturn(int id);
         void ShowAllBoatInTheWater();
         void PrintAll();
+        List<Booking> GetAll();
+
     }
 }

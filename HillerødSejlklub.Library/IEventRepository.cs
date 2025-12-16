@@ -11,5 +11,6 @@ namespace HillerødSejlklub.Library
         Event GetByTitle(string title);
         Event RemoveByTitle(string title);
         void AddUserToEvent(string eventTitle, int id, UserRepository userRepository);
+        List<Event> GetAll();
     }
 }
