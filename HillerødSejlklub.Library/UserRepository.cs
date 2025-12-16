@@ -67,7 +67,6 @@ namespace HillerødSejlklub.Library
         // Denne metode henter en bruger baseret på ID
         public User GetById(int id)
         {
-
             foreach (User user in _userData.Values) 
             {
                 if (user.Id == id) 
@@ -157,6 +156,5 @@ namespace HillerødSejlklub.Library
         { 
             return _userData.Count;
         }
-
     }
 }

@@ -8,9 +8,9 @@ namespace HillerødSejlklub.Library
     {
         // instance field
         private static List<Event> _events = new List<Event>()
-    {
-        { new Event("Rave party","Vi smadrer loftet", new DateTime(2026,1 , 13, 10,00,00), new DateTime(2026, 01, 13, 12, 00, 00), "Hillerødsejlklub", 0)},
-    };
+        {
+            { new Event("Rave party","Vi smadrer loftet", new DateTime(2026,1 , 13, 10,00,00), new DateTime(2026, 01, 13, 12, 00, 00), "Hillerødsejlklub", 0)},
+        };
 
         // Metoder
 
@@ -84,16 +84,13 @@ namespace HillerødSejlklub.Library
             if (ev.ParticipantList.Count >= ev.MaxParticipants) // Tjekker om der er plads til flere i eventet
             {
                 Console.WriteLine($"{ev.Title} er fuldt booket");
-                
             }
             else
-
             {
                 ev.ParticipantList.Add(user); 
                 Console.WriteLine($"{user.Name} er nu tilføjet");
                 Console.WriteLine($"Der er {ev.ParticipantList.Count} medlemmere tilmedt til eventet ud af {ev.MaxParticipants}");
             }
-
         }
 
         // Udskriver alle events i samlingen
