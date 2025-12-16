@@ -9,7 +9,7 @@ namespace HillerødSejlklub.Library
         // Metoder
         List<Boat> GetAll();
         Boat GetById(int id);
-        void Add(Boat boat);
+        string Add(Boat boat);
         void Remove(int id);
         void PrintAll();
     }

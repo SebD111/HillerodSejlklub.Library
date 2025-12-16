@@ -14,6 +14,9 @@ namespace HillerødSejlklub.Web.Pages
             _boatRepository = boatRepository;
         }
 
+        public static string Message
+        { get; set; }
+
         public void OnGet()
         {
         }
@@ -50,7 +53,7 @@ namespace HillerødSejlklub.Web.Pages
 
             if (newBoat != null)
             {
-                _boatRepository.Add(newBoat);
+                Message = _boatRepository.Add(newBoat);
             }
 
             return RedirectToPage("/AdminBoats");

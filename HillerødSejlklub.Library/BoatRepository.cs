@@ -35,9 +35,18 @@ namespace HillerødSejlklub.Library
         }
 
         // Denne metode tilføjer en båd til båd dictionary
-        public void Add(Boat boat)
+        public string Add(Boat boat)
         {
-            _boatData.Add(boat.BoatName, boat);
+            try
+            {
+                _boatData.Add(boat.BoatName, boat);
+            }
+            catch (Exception ex)
+            {
+                return $"Kunne ikke tilføje båden: {boat.BoatName}";
+            }
+            return $"Båden: {boat.BoatName} blev tilføjet";
+
         }
 
         // Denne metode fjerner en båd ud fra id
